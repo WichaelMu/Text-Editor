@@ -58,9 +58,9 @@ namespace IO
 		}
 
 #if true
-		/// <summary>Retrieves and Constructs an <see cref="Account"/> from a file with the corresponding <see cref="Account.ID"/>.</summary>
-		/// <param name="ID">The <see cref="Account.ID"/>.</param>
-		/// <returns>The <see cref="Account"/> associated with <paramref name="ID"/>.</returns>
+		/// <summary>Retrieves and Constructs an <see cref="MUser"/> from a file with the corresponding <see cref="MUser.ID"/>.</summary>
+		/// <param name="ID">The <see cref="MUser.ID"/>.</param>
+		/// <returns>The <see cref="MUser"/> associated with <paramref name="ID"/>.</returns>
 		public static MUser ConstructFromFile(string[] FromString)
 		{
 			string UN = FromString[0];
@@ -73,9 +73,11 @@ namespace IO
 			return new MUser(UN, PW, T, FN, LN, DateTime.Parse(DB));
 		}
 
-		static EUserTypes GetUType(string Type)
+		public static EUserTypes GetUType(string Type)
 		{
-			return EUserTypes.Base;
+			if (Type == nameof(EUserTypes.View))
+				return EUserTypes.View;
+			return EUserTypes.Edit;
 		}
 #endif
 

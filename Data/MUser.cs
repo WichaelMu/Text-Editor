@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Text;
+﻿using System.Text;
+using IO;
 
 public class MUser
 {
@@ -48,6 +48,31 @@ public class MUser
 	public string FormatDoBFull()
 	{
 		return DoB.ToString("D");
+	}
+
+	public async void Write()
+	{
+		await FileSystem.WriteToFile(FileSystem.kDirectory, FileSystem.kLoginFile, EWriteMode.Append, Encoding.UTF8, FormatToFile());
+	}
+
+	string FormatToFile()
+	{
+		StringBuilder SB = new();
+
+		SB
+			.Append(Username)
+			.Append(',')
+			.Append(Password)
+			.Append(',')
+			.Append(Type)
+			.Append(',')
+			.Append(FirstName)
+			.Append(',')
+			.Append(LastName)
+			.Append(',')
+			.Append(FormatDoB());
+
+		return SB.ToString();
 	}
 
 	public override string ToString()

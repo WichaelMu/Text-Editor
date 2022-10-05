@@ -49,6 +49,15 @@ public class UForm : IFormClass
 		);
 	}
 
+	public static void Print(IFormClass Class, Action<object, KeyEventArgs>? __FUNCTION__, object Param)
+	{
+		Print(Class.__CLASS__, __FUNCTION__ == null
+			? UForm.__FUNCTION__
+			: __FUNCTION__.Method.Name,
+				Param
+		);
+	}
+
 	public static void Print(string __CLASS__, object Param)
 	{
 		Debug.WriteLine(__CLASS__ + " -> " + Param.ToString());
@@ -61,6 +70,13 @@ public class UForm : IFormClass
 
 	public static void ShowHide<S, H>(S ToShow, H ToHide) where S : Form where H : Form
 	{
+		ToShow.Show();
+		ToHide.Hide();
+	}
+
+	public static void ShowHide<S>(Form ToHide) where S : Form, new()
+	{
+		S ToShow = new ();
 		ToShow.Show();
 		ToHide.Hide();
 	}

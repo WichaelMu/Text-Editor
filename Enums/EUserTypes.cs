@@ -1,5 +1,6 @@
 ﻿
-public enum EUserTypes
+public enum EUserTypes : byte
 {
-	Base
+	View = 1,
+	Edit = 2
 }

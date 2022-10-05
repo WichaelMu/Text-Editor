@@ -31,7 +31,7 @@ namespace Engine
 				long DeltaTime = sw.ElapsedMilliseconds - Prev;
 				Prev = sw.ElapsedMilliseconds;
 
-				await Task.Delay(1);
+				await Task.Delay(5);
 
 				if (bCanTick)
 					Tick(DeltaTime * .001f);

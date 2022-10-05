@@ -1,4 +1,4 @@
-namespace Text_Editor
+namespace MTextEditor
 {
 	internal static class Program
 	{
