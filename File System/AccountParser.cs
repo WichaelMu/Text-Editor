@@ -1,5 +1,5 @@
 ﻿using static IO.FileSystem;
-using static FFormUtilities;
+using static UForm;
 
 namespace IO
 {
@@ -8,9 +8,9 @@ namespace IO
 		public const char kDelimiter = ',';
 
 		/// <summary>Read and Parse valid Login Credentials.</summary>
-		public static bool ReadLogins(IFormDefinitions Class, out Dictionary<string, FUser> OutCredentials)
+		public static bool ReadLogins(IFormClass Class, out Dictionary<string, MUser> OutCredentials)
 		{
-			OutCredentials = new Dictionary<string, FUser>();
+			OutCredentials = new Dictionary<string, MUser>();
 			if (ReadFromFile(kDirectory, kLoginFile, out List<string> LoginData))
 			{
 				foreach (string Credential in LoginData)
@@ -61,7 +61,7 @@ namespace IO
 		/// <summary>Retrieves and Constructs an <see cref="Account"/> from a file with the corresponding <see cref="Account.ID"/>.</summary>
 		/// <param name="ID">The <see cref="Account.ID"/>.</param>
 		/// <returns>The <see cref="Account"/> associated with <paramref name="ID"/>.</returns>
-		public static FUser ConstructFromFile(string[] FromString)
+		public static MUser ConstructFromFile(string[] FromString)
 		{
 			string UN = FromString[0];
 			string PW = FromString[1];
@@ -70,7 +70,7 @@ namespace IO
 			string LN = FromString[4];
 			string DB = FromString[5];
 
-			return new FUser(UN, PW, T, FN, LN, DateTime.Parse(DB));
+			return new MUser(UN, PW, T, FN, LN, DateTime.Parse(DB));
 		}
 
 		static EUserTypes GetUType(string Type)

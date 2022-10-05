@@ -1,9 +1,10 @@
 ﻿using System.Diagnostics;
 using System.Reflection;
+using Engine;
 
-public class FFormUtilities : IFormDefinitions
+public class UForm : IFormClass
 {
-	public string __CLASS__ => "FCoreBaseForm";
+	public string __CLASS__ => "UForm";
 
 	public static string __FUNCTION__
 	{
@@ -25,24 +26,24 @@ public class FFormUtilities : IFormDefinitions
 
 	public static void Print(string __CLASS__, string __FUNCTION__, object Param)
 	{
-		Debug.WriteLine(__CLASS__ + "::" + (__FUNCTION__ ?? FFormUtilities.__FUNCTION__)
+		Debug.WriteLine(__CLASS__ + "::" + (__FUNCTION__ ?? UForm.__FUNCTION__)
 				+ " -> " + Param.ToString()
 		);
 	}
 
-	public static void Print(IFormDefinitions Class, Action? __FUNCTION__, object Param)
+	public static void Print(IFormClass Class, Action? __FUNCTION__, object Param)
 	{
 		Print(Class.__CLASS__, __FUNCTION__ == null
-			? FFormUtilities.__FUNCTION__
+			? UForm.__FUNCTION__
 			: __FUNCTION__.Method.Name,
 				Param
 		);
 	}
 
-	public static void Print(IFormDefinitions Class, Action<object, EventArgs>? __FUNCTION__, object Param)
+	public static void Print(IFormClass Class, Action<object, EventArgs>? __FUNCTION__, object Param)
 	{
 		Print(Class.__CLASS__, __FUNCTION__ == null
-			? FFormUtilities.__FUNCTION__
+			? UForm.__FUNCTION__
 			: __FUNCTION__.Method.Name,
 				Param
 		);
@@ -53,8 +54,20 @@ public class FFormUtilities : IFormDefinitions
 		Debug.WriteLine(__CLASS__ + " -> " + Param.ToString());
 	}
 
-	public static void Print(IFormDefinitions Class, object Param)
+	public static void Print(IFormClass Class, object Param)
 	{
 		Print(Class.__CLASS__, Param);
+	}
+
+	public static void ShowHide<S, H>(S ToShow, H ToHide) where S : Form where H : Form
+	{
+		ToShow.Show();
+		ToHide.Hide();
+	}
+
+	public static V2 GetBounds(Form Bounds)
+	{
+		var B = Bounds.Size;
+		return new V2(B.Width, B.Height);
 	}
 }

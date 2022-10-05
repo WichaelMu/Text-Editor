@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Text;
 
-public class FUser
+public class MUser
 {
-	public static Dictionary<string, FUser> AllUsers;
-	static FUser Instance = null;
+	public static Dictionary<string, MUser> AllUsers;
+	static MUser Instance = null;
 
 	public string Username;
 	public string Password;
@@ -16,7 +16,7 @@ public class FUser
 
 	public DateTime DoB;
 
-	public FUser(string Username, string Password, EUserTypes Type, string FirstName, string LastName, DateTime DoB)
+	public MUser(string Username, string Password, EUserTypes Type, string FirstName, string LastName, DateTime DoB)
 	{
 		this.Username = Username;
 		this.Password = Password;
@@ -26,12 +26,12 @@ public class FUser
 		this.DoB = DoB;
 	}
 
-	public static FUser Get()
+	public static MUser Get()
 	{
 		return Instance;
 	}
 
-	public static bool SetUser(FUser UserToSet)
+	public static bool SetUser(MUser UserToSet)
 	{
 		bool bWasPreviouslyNull = Instance;
 
@@ -70,5 +70,5 @@ public class FUser
 		return SB.ToString();
 	}
 
-	public static implicit operator bool (FUser U) => U == null;
+	public static implicit operator bool (MUser U) => U == null;
 }
