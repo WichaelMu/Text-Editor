@@ -25,8 +25,13 @@ namespace IO
 
 			if (Mode == EWriteMode.Overwrite)
 			{
-				// Async when writing as a new file.
-				await File.WriteAllLinesAsync(PathAndName, Lines, Encoding);
+				using StreamWriter File = new StreamWriter(PathAndName, false, Encoding);
+				for (int i = 0; i < Lines.Length; ++i)
+				{
+					await File.WriteAsync(Lines[i]);
+				}
+
+				File.Close();
 			}
 			else
 			{

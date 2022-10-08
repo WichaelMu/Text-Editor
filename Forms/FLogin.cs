@@ -25,7 +25,7 @@ namespace MTextEditor
 		{
 			InitializeComponent();
 
-			GetTickComponent().OnStart();
+			GetTickComponent().InitialiseTickComponent();
 		}
 
 		void Start(object Sender, EventArgs E)
