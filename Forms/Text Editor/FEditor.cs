@@ -14,6 +14,7 @@ namespace MTextEditor
 			InitializeComponent();
 		}
 
+		/// <summary><b>Bold</b>, <u>Underline</u>, and <i>Italics</i> shortcut keys.</summary>
 		protected override bool ProcessCmdKey(ref Message Message, Keys Key)
 		{
 			switch (Key)
@@ -73,13 +74,18 @@ namespace MTextEditor
 			);
 		}
 
+		/// <summary>Ask the <see cref="MUser"/> if they want to save their changes.</summary>
+		/// <returns><see langword="True"/> for <see cref="DialogResult.Yes"/> <b>AND</b> <see cref="DialogResult.No"/>.</returns>
 		bool CheckAndAskForUnsaved()
 		{
 			return SaveUnsavedChanges() != DialogResult.Cancel;
 		}
 
+		/// <returns><see langword="true"/> if there are unsaved changes in <see cref="RTextArea"/> as compared to <see cref="CurrentyOpenedFile"/>.</returns>
 		bool HasUnsavedChanges() => UnsavedChangesTracker != RTextArea.Text.GetHashCode();
 
+		/// <summary>Prompts the <see cref="MUser"/> to save any unsaved changes to their currently opened file.</summary>
+		/// <returns><see cref="DialogResult"/> of their decision to save or cancel.</returns>
 		DialogResult SaveUnsavedChanges()
 		{
 			DialogResult Response = DialogResult.No;
@@ -131,6 +137,7 @@ namespace MTextEditor
 			}
 		}
 
+		/// <summary>Clears <see cref="RTextArea"/> and sets <see cref="FEditor"/> to it's default state.</summary>
 		void Clear()
 		{
 			RTextArea.Text = string.Empty;

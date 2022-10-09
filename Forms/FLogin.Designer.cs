@@ -39,6 +39,7 @@
 			this.TLoginPassword = new System.Windows.Forms.TextBox();
 			this.TLoginUsername = new System.Windows.Forms.TextBox();
 			this.SignUpGroup = new System.Windows.Forms.GroupBox();
+			this.LSignupNameFailMessage = new System.Windows.Forms.Label();
 			this.LSignupPasswordFailMessage = new System.Windows.Forms.Label();
 			this.LSignupUsernameFailMessage = new System.Windows.Forms.Label();
 			this.label7 = new System.Windows.Forms.Label();
@@ -166,6 +167,7 @@
 			// 
 			// SignUpGroup
 			// 
+			this.SignUpGroup.Controls.Add(this.LSignupNameFailMessage);
 			this.SignUpGroup.Controls.Add(this.LSignupPasswordFailMessage);
 			this.SignUpGroup.Controls.Add(this.LSignupUsernameFailMessage);
 			this.SignUpGroup.Controls.Add(this.label7);
@@ -184,16 +186,27 @@
 			this.SignUpGroup.Controls.Add(this.BCancel);
 			this.SignUpGroup.Location = new System.Drawing.Point(840, 106);
 			this.SignUpGroup.Name = "SignUpGroup";
-			this.SignUpGroup.Size = new System.Drawing.Size(444, 258);
+			this.SignUpGroup.Size = new System.Drawing.Size(444, 290);
 			this.SignUpGroup.TabIndex = 5;
 			this.SignUpGroup.TabStop = false;
 			this.SignUpGroup.Text = "New User Sign Up";
+			// 
+			// LSignupNameFailMessage
+			// 
+			this.LSignupNameFailMessage.AutoSize = true;
+			this.LSignupNameFailMessage.ForeColor = System.Drawing.Color.Red;
+			this.LSignupNameFailMessage.Location = new System.Drawing.Point(248, 98);
+			this.LSignupNameFailMessage.Name = "LSignupNameFailMessage";
+			this.LSignupNameFailMessage.Size = new System.Drawing.Size(117, 15);
+			this.LSignupNameFailMessage.TabIndex = 17;
+			this.LSignupNameFailMessage.Text = "## FAIL MESSAGE ##";
+			this.LSignupNameFailMessage.Visible = false;
 			// 
 			// LSignupPasswordFailMessage
 			// 
 			this.LSignupPasswordFailMessage.AutoSize = true;
 			this.LSignupPasswordFailMessage.ForeColor = System.Drawing.Color.Red;
-			this.LSignupPasswordFailMessage.Location = new System.Drawing.Point(8, 181);
+			this.LSignupPasswordFailMessage.Location = new System.Drawing.Point(6, 179);
 			this.LSignupPasswordFailMessage.Name = "LSignupPasswordFailMessage";
 			this.LSignupPasswordFailMessage.Size = new System.Drawing.Size(117, 15);
 			this.LSignupPasswordFailMessage.TabIndex = 16;
@@ -204,7 +217,7 @@
 			// 
 			this.LSignupUsernameFailMessage.AutoSize = true;
 			this.LSignupUsernameFailMessage.ForeColor = System.Drawing.Color.Red;
-			this.LSignupUsernameFailMessage.Location = new System.Drawing.Point(8, 69);
+			this.LSignupUsernameFailMessage.Location = new System.Drawing.Point(6, 69);
 			this.LSignupUsernameFailMessage.Name = "LSignupUsernameFailMessage";
 			this.LSignupUsernameFailMessage.Size = new System.Drawing.Size(117, 15);
 			this.LSignupUsernameFailMessage.TabIndex = 15;
@@ -214,7 +227,7 @@
 			// label7
 			// 
 			this.label7.AutoSize = true;
-			this.label7.Location = new System.Drawing.Point(248, 155);
+			this.label7.Location = new System.Drawing.Point(248, 184);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(57, 15);
 			this.label7.TabIndex = 14;
@@ -223,7 +236,7 @@
 			// label6
 			// 
 			this.label6.AutoSize = true;
-			this.label6.Location = new System.Drawing.Point(248, 106);
+			this.label6.Location = new System.Drawing.Point(248, 135);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(73, 15);
 			this.label6.TabIndex = 13;
@@ -258,7 +271,7 @@
 			// 
 			// BSignup
 			// 
-			this.BSignup.Location = new System.Drawing.Point(275, 221);
+			this.BSignup.Location = new System.Drawing.Point(275, 250);
 			this.BSignup.Name = "BSignup";
 			this.BSignup.Size = new System.Drawing.Size(75, 23);
 			this.BSignup.TabIndex = 9;
@@ -269,14 +282,14 @@
 			// EUserType
 			// 
 			this.EUserType.FormattingEnabled = true;
-			this.EUserType.Location = new System.Drawing.Point(248, 173);
+			this.EUserType.Location = new System.Drawing.Point(248, 202);
 			this.EUserType.Name = "EUserType";
 			this.EUserType.Size = new System.Drawing.Size(121, 23);
 			this.EUserType.TabIndex = 8;
 			// 
 			// DBirthday
 			// 
-			this.DBirthday.Location = new System.Drawing.Point(248, 124);
+			this.DBirthday.Location = new System.Drawing.Point(248, 153);
 			this.DBirthday.Name = "DBirthday";
 			this.DBirthday.Size = new System.Drawing.Size(190, 23);
 			this.DBirthday.TabIndex = 7;
@@ -326,7 +339,7 @@
 			// 
 			// BCancel
 			// 
-			this.BCancel.Location = new System.Drawing.Point(96, 221);
+			this.BCancel.Location = new System.Drawing.Point(96, 250);
 			this.BCancel.Name = "BCancel";
 			this.BCancel.Size = new System.Drawing.Size(75, 23);
 			this.BCancel.TabIndex = 0;
@@ -338,7 +351,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1264, 457);
+			this.ClientSize = new System.Drawing.Size(1436, 457);
 			this.Controls.Add(this.SignUpGroup);
 			this.Controls.Add(this.LoginGroup);
 			this.Controls.Add(this.LTitle);
@@ -348,6 +361,7 @@
 			this.MaximizeBox = false;
 			this.Name = "FLogin";
 			this.Text = "Login";
+			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FLogin_Closed);
 			this.Load += new System.EventHandler(this.Start);
 			this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FLogin_OnKeyDown);
 			this.LoginGroup.ResumeLayout(false);
@@ -387,5 +401,6 @@
 		private Label LSignupUsernameFailMessage;
 		private Label LLoginFailMessage;
 		private Label LSignupPasswordFailMessage;
+		private Label LSignupNameFailMessage;
 	}
 }

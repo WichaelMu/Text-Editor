@@ -44,6 +44,7 @@ namespace MTextEditor
 
 			EUserType.Items.Add(EUserTypes.View);
 			EUserType.Items.Add(EUserTypes.Edit);
+			EUserType.Text = EUserType.Items[0].ToString();
 		}
 
 		public void Tick(float DeltaTime)
@@ -72,10 +73,7 @@ namespace MTextEditor
 
 		#region Func Login
 
-		void OnClick_Login(object Sender, EventArgs E)
-		{
-			CheckLogin();
-		}
+		void OnClick_Login(object Sender, EventArgs E) => CheckLogin();
 
 		void CheckLogin()
 		{
@@ -124,6 +122,8 @@ namespace MTextEditor
 
 		#endregion
 
+		#region Func Signup
+
 		void OnClick_Signup(object Sender, EventArgs E)
 		{
 			ESignupResponse Response = ValidateSignup(out MUser NewUser);
@@ -148,6 +148,24 @@ namespace MTextEditor
 					LSignupPasswordFailMessage.Visible = true;
 					LSignupPasswordFailMessage.Text = "Passwords don't match!";
 				}
+
+				if ((Response & ESignupResponse.UsernameEmpty) == ESignupResponse.UsernameEmpty)
+				{
+					LSignupUsernameFailMessage.Visible = true;
+					LSignupUsernameFailMessage.Text = "This field cannot be empty!";
+				}
+
+				if ((Response & ESignupResponse.PasswordEmpty) == ESignupResponse.PasswordEmpty)
+				{
+					LSignupPasswordFailMessage.Visible = true;
+					LSignupPasswordFailMessage.Text = "This field cannot be empty!";
+				}
+
+				if ((Response & ESignupResponse.NameEmpty) == ESignupResponse.NameEmpty)
+				{
+					LSignupNameFailMessage.Visible = true;
+					LSignupNameFailMessage.Text = "This field cannot be empty!";
+				}
 			}
 		}
 
@@ -155,11 +173,21 @@ namespace MTextEditor
 		{
 			ESignupResponse Response = ESignupResponse.OK;
 			NewUser = null;
+
 			if (AllUsers.ContainsKey(TSignupUsername.Text))
 				Response |= ESignupResponse.UsernameExists;
 
 			if (TSignupPasswordBase.Text != TSignupPasswordComparison.Text)
 				Response |= ESignupResponse.PasswordNonMatch;
+
+			if (TSignupUsername.Text.Length == 0)
+				Response |= ESignupResponse.UsernameEmpty;
+
+			if (TSignupPasswordBase.Text.Length == 0)
+				Response |= ESignupResponse.PasswordEmpty;
+
+			if (TFirstName.Text.Length == 0 || TLastName.Text.Length == 0)
+				Response |= ESignupResponse.NameEmpty;
 
 			if (Response != 0)
 				return Response;
@@ -177,10 +205,9 @@ namespace MTextEditor
 			return ESignupResponse.OK;
 		}
 
-		public ITick<FLogin> GetTickComponent()
-		{
-			return (ITick<FLogin>)this;
-		}
+		#endregion
+
+		public ITick<FLogin> GetTickComponent() => (ITick<FLogin>)this;
 
 		//V2 RefLoginGroupVelocity;
 		//V2 RefSignUpGroupVelocity;
@@ -218,6 +245,7 @@ namespace MTextEditor
 
 			LSignupUsernameFailMessage.Visible = false;
 			LSignupPasswordFailMessage.Visible = false;
+			LSignupNameFailMessage.Visible = false;
 		}
 
 		void OnClick_ShowSignup(object sender, EventArgs e)
@@ -234,6 +262,11 @@ namespace MTextEditor
 			{
 				CheckLogin();
 			}
+		}
+
+		void FLogin_Closed(object Sender, FormClosedEventArgs E)
+		{
+			Application.Exit();
 		}
 	}
 }

@@ -7,6 +7,7 @@ namespace MTextEditor
 {
 	public partial class FEditor
 	{
+		/// <summary>Saves the <see cref="CurrentyOpenedFile"/> or <see cref="SaveAs"/> if no file exists.</summary>
 		void Save()
 		{
 			if (string.IsNullOrEmpty(CurrentyOpenedFile))
@@ -24,6 +25,8 @@ namespace MTextEditor
 			UpdateTitle();
 		}
 
+		/// <summary>Saves the <see cref="CurrentyOpenedFile"/> as either <see cref="kTXT"/> or <see cref="kRTF"/>.</summary>
+		/// <returns><see cref="DialogResult"/> reporting any cancel operations.</returns>
 		DialogResult SaveAs()
 		{
 			Print(this, SaveAs, "Save As");
