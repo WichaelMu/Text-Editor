@@ -77,5 +77,11 @@ namespace Engine
 				return ((int)F) + 1;
 			return (int)F;
 		}
+
+		public static void ClampMin(ref float F, float Min)
+		{
+			if (F < Min)
+				F = Min;
+		}
 	}
 }

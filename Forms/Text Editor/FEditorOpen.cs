@@ -1,4 +1,5 @@
-﻿using static UForm;
+﻿using IO;
+using static UForm;
 
 namespace MTextEditor
 {
@@ -12,9 +13,11 @@ namespace MTextEditor
 
 			if (FileExplorer("Open", ref CurrentyOpenedFile, true))
 			{
-				int Extension = CurrentyOpenedFile.Split('.')[^1] == "rtf" ? 0 : 1;
+				int Extension = FileSystem.GetExtension(CurrentyOpenedFile);
 				RTextArea.LoadFile(CurrentyOpenedFile, (RichTextBoxStreamType)Extension);
 				UnsavedChangesTracker = RTextArea.Text.GetHashCode();
+
+				SetExtension(Extension);
 			}
 
 			UpdateTitle();

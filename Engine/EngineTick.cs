@@ -12,7 +12,7 @@ namespace Engine
 
 		public void InitialiseTickComponent()
 		{
-			ThisAsForm().Load += BeginTick;
+			BeginTick(this, null);
 		}
 
 		public Form ThisAsForm()

@@ -14,6 +14,24 @@ namespace MTextEditor
 			InitializeComponent();
 		}
 
+		protected override bool ProcessCmdKey(ref Message Message, Keys Key)
+		{
+			switch (Key)
+			{
+				case Keys.Control | Keys.B:
+					Bold();
+					return true;
+				case Keys.Control | Keys.U:
+					Underline();
+					return true;
+				case Keys.Control | Keys.I:
+					Italics();
+					return true;
+			}
+
+			return base.ProcessCmdKey(ref Message, Key);
+		}
+
 		void Start(object Sender, EventArgs E)
 		{
 			LLoggedInUser.Text = "Username: " + MUser.Get().Username;
@@ -61,6 +79,9 @@ namespace MTextEditor
 			{
 				RTextArea.Text = string.Empty;
 				UnsavedChangesTracker = string.Empty.GetHashCode();
+
+				CurrentyOpenedFile = string.Empty;
+				SetExtension(1);
 			}
 		}
 

@@ -51,6 +51,8 @@ namespace MTextEditor
 			LTitle.Text = "Delta Time: " + DeltaTime.ToString("F3");
 
 			InterpGroups(bIsSigningUp, DeltaTime);
+
+			Invalidate();
 		}
 
 		void LoadLogins()
@@ -180,6 +182,9 @@ namespace MTextEditor
 			return (ITick<FLogin>)this;
 		}
 
+		//V2 RefLoginGroupVelocity;
+		//V2 RefSignUpGroupVelocity;
+
 		void InterpGroups(bool bIsSigningUp, float DeltaTime)
 		{
 			if (T <= 1f)
@@ -188,13 +193,17 @@ namespace MTextEditor
 
 				if (bIsSigningUp)
 				{
-					LoginGroup.Location = V2.Interp(LoginGroup.Location, LoginOutOfBounds, T);
-					SignUpGroup.Location = V2.Interp(SignUpGroup.Location, LoginGroupStartPos - SignupInboundOffset, T);
+					LoginGroup.Location = V2.Interp(LoginGroup.Location, LoginOutOfBounds, .15f);
+					SignUpGroup.Location = V2.Interp(SignUpGroup.Location, LoginGroupStartPos - SignupInboundOffset, .15f);
+					//LoginGroup.Location = V2.Smooth(LoginGroup.Location, LoginOutOfBounds, ref RefLoginGroupVelocity, 1f, 5f, DeltaTime);
+					//SignUpGroup.Location = V2.Smooth(SignUpGroup.Location, LoginGroupStartPos - SignupInboundOffset, ref RefSignUpGroupVelocity, 1f, 5f, DeltaTime);
 				}
 				else
 				{
-					LoginGroup.Location = V2.Interp(LoginGroup.Location, LoginGroupStartPos, T);
-					SignUpGroup.Location = V2.Interp(SignUpGroup.Location, SignUpGroupStartPos, T);
+					LoginGroup.Location = V2.Interp(LoginGroup.Location, LoginGroupStartPos, .15f);
+					SignUpGroup.Location = V2.Interp(SignUpGroup.Location, SignUpGroupStartPos, .15f);
+					//LoginGroup.Location = V2.Smooth(LoginGroup.Location, LoginGroupStartPos, ref RefLoginGroupVelocity, 1f, 5f, DeltaTime);
+					//SignUpGroup.Location = V2.Smooth(SignUpGroup.Location, SignUpGroupStartPos, ref RefSignUpGroupVelocity, 1f, 5f, DeltaTime);
 				}
 			}
 

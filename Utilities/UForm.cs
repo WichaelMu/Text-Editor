@@ -105,7 +105,21 @@ public class UForm : IFormClass
 		return new V2(B.Width, B.Height);
 	}
 
-	const string kFilter = "Plain Text (*.txt)|*.txt|Rich Text Format (*.rtf)|*.rtf";
+	const string kTXT = "Plain Text (*.txt)|*.txt";
+	const string kRTF = "Rich Text Format (*.rtf)|*.rtf";
+	static string Filter = kTXT + "|" + kRTF;
+
+	public static void SetExtension(int Extension)
+	{
+		if (Extension == 0)
+		{
+			Filter = kRTF + "|" + kTXT;
+		}
+		else
+		{
+			Filter = kTXT + "|" + kRTF;
+		}
+	}
 
 	public static bool FileExplorer(string Title, ref string FileName, bool bOpening)
 	{
@@ -113,7 +127,7 @@ public class UForm : IFormClass
 		{
 			OpenFileDialog File = new OpenFileDialog();
 			File.Title = Title;
-			File.Filter = kFilter;
+			File.Filter = Filter;
 
 			if (File.ShowDialog() == DialogResult.OK)
 			{
@@ -125,7 +139,7 @@ public class UForm : IFormClass
 		{
 			SaveFileDialog Path = new SaveFileDialog();
 			Path.Title = Title;
-			Path.Filter = kFilter;
+			Path.Filter = Filter;
 
 			if (Path.ShowDialog() == DialogResult.OK)
 			{

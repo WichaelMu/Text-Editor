@@ -1,5 +1,8 @@
 ﻿
 
+using System.Numerics;
+using System;
+
 namespace Engine
 {
 	public struct V2
@@ -27,9 +30,63 @@ namespace Engine
 		public static V2 Interp(V2 L, V2 R, float Alpha)
 		{
 			return new V2(
-				FMath.Ceil(L.X + (R.X - L.X) * Alpha),
-				FMath.Ceil(L.Y + (R.Y - L.Y) * Alpha)
+				(float)Math.Ceiling(L.X + (R.X - L.X) * Alpha),
+				(float)Math.Ceiling(L.Y + (R.Y - L.Y) * Alpha)
 			);
+		}
+
+		public static V2 Smooth(V2 Current, V2 Target, ref V2 Velocity, float Time, float MaxDelta, float DeltaTime)
+		{
+			FMath.ClampMin(ref Time, kEpsilon);
+			float Omega = 2F / Time;
+
+			float X = Omega * DeltaTime;
+			float Exp = 1F / (1F + X + .48F * X * X + .235F * X * X * X);
+
+			float DeltaX = Current.X - Target.X;
+			float DeltaY = Current.Y - Target.Y;
+			V2 OriginalTarget = Target;
+
+			float MaxDeltaMagnitude = MaxDelta * Time;
+			float MaxDeltaSquared = MaxDeltaMagnitude * MaxDeltaMagnitude;
+			float DeltaSquared = DeltaX * DeltaX + DeltaY * DeltaY;
+
+			if (DeltaSquared > MaxDeltaSquared)
+			{
+				float Magnitude = FMath.Sqrt(DeltaSquared);
+				float RMagnitude = 1F / Magnitude;
+				DeltaX = DeltaX * RMagnitude * MaxDeltaMagnitude;
+				DeltaY = DeltaY * RMagnitude * MaxDeltaMagnitude;
+			}
+
+			Target.X = Current.X - DeltaX;
+			Target.Y = Current.Y - DeltaY;
+
+			float TX = (Velocity.X + Omega * DeltaX) * DeltaTime;
+			float TY = (Velocity.Y + Omega * DeltaY) * DeltaTime;
+
+			Velocity.X = (Velocity.X - Omega * TX) * Exp;
+			Velocity.Y = (Velocity.Y - Omega * TY) * Exp;
+
+			float OX = Target.X + (DeltaX + TX) * Exp;
+			float OY = Target.Y + (DeltaY + TY) * Exp;
+
+			float DeltaOriginX = OriginalTarget.X - Current.X;
+			float DeltaOriginY = OriginalTarget.Y - Current.Y;
+
+			float DeltaCurrentX = OX - OriginalTarget.X;
+			float DeltaCurrentY = OY - OriginalTarget.Y;
+
+			if (DeltaOriginX * DeltaCurrentX + DeltaOriginY * DeltaCurrentY > 0)
+			{
+				OX = OriginalTarget.X;
+				OY = OriginalTarget.Y;
+
+				float RDeltaTime = 1f / DeltaTime;
+				Velocity.X = (OX - OriginalTarget.X) * RDeltaTime;
+				Velocity.Y = (OY - OriginalTarget.Y) * RDeltaTime;
+			}
+			return new V2(OX, OY);
 		}
 
 		/// <summary>The distance between Left and Right.</summary>
@@ -151,8 +208,8 @@ namespace Engine
 		/// <decorations decor="public static implicit operator bool"></decorations>
 		public static implicit operator bool(V2 M) => M;
 
-		public static implicit operator Point(V2 V) => new ((int)V.X, (int)V.Y);
-		public static implicit operator V2(Point P) => new (P.X, P.Y);
+		public static implicit operator Point(V2 V) => new((int)V.X, (int)V.Y);
+		public static implicit operator V2(Point P) => new(P.X, P.Y);
 
 		/// <summary>Hash code for use in Maps, Sets, MArrays, etc.</summary>
 		/// <decorations decors="public override int"></decorations>

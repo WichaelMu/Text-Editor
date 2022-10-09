@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using IO;
+using static IO.FileSystem;
 using static UForm;
 
 namespace MTextEditor
@@ -39,7 +40,8 @@ namespace MTextEditor
 
 		async void SaveRTextAreaToFile(string Path)
 		{
-			await FileSystem.WriteToFile("", Path, EWriteMode.Overwrite, Encoding.UTF8, RTextArea.Text);
+			await WriteToFile("", Path, EWriteMode.Overwrite, Encoding.Default,
+				GetExtension(CurrentyOpenedFile) == 0 ? RTextArea.Rtf : RTextArea.Text);
 		}
 	}
 }

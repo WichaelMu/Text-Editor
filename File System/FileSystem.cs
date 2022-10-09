@@ -100,5 +100,7 @@ namespace IO
 			if (FileExists(kDirectory, ID + ".txt"))
 				File.Delete(kDirectory + ID + ".txt");
 		}
+
+		public static int GetExtension(string File) => File.Split('.')[^1] == "rtf" ? 0 : 1;
 	}
 }
