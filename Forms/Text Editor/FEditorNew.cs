@@ -8,7 +8,11 @@ namespace MTextEditor
 		{
 			Print(this, New, "New");
 
-			CheckAndAskForUnsaved();
+			if (CheckAndAskForUnsaved())
+			{
+				Clear();
+				CurrentyOpenedFile = string.Empty;
+			}
 
 			UpdateTitle();
 		}

@@ -121,7 +121,7 @@ public class UForm : IFormClass
 		}
 	}
 
-	public static bool FileExplorer(string Title, ref string FileName, bool bOpening)
+	public static bool FileExplorer(string Title, ref string FileName, bool bOpening, out DialogResult Response)
 	{
 		if (bOpening)
 		{
@@ -129,7 +129,8 @@ public class UForm : IFormClass
 			File.Title = Title;
 			File.Filter = Filter;
 
-			if (File.ShowDialog() == DialogResult.OK)
+			Response = File.ShowDialog();
+			if (Response == DialogResult.OK)
 			{
 				FileName = File.FileName;
 				return true;
@@ -141,7 +142,8 @@ public class UForm : IFormClass
 			Path.Title = Title;
 			Path.Filter = Filter;
 
-			if (Path.ShowDialog() == DialogResult.OK)
+			Response = Path.ShowDialog();
+			if (Response == DialogResult.OK)
 			{
 				FileName = Path.FileName;
 				return true;
@@ -150,4 +152,6 @@ public class UForm : IFormClass
 
 		return false;
 	}
+
+	public static bool FileExplorer(string Title, ref string FileName, bool bOpening) => FileExplorer(Title, ref FileName, bOpening, out _);
 }

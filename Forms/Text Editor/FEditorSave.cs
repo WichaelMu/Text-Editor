@@ -24,11 +24,11 @@ namespace MTextEditor
 			UpdateTitle();
 		}
 
-		void SaveAs()
+		DialogResult SaveAs()
 		{
 			Print(this, SaveAs, "Save As");
 
-			if (FileExplorer("Save As", ref CurrentyOpenedFile, false))
+			if (FileExplorer("Save As", ref CurrentyOpenedFile, false, out DialogResult Response))
 			{
 				SaveRTextAreaToFile(CurrentyOpenedFile);
 
@@ -36,6 +36,8 @@ namespace MTextEditor
 			}
 
 			UpdateTitle();
+
+			return Response;
 		}
 
 		async void SaveRTextAreaToFile(string Path)

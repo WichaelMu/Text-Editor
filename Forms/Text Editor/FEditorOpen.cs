@@ -9,18 +9,25 @@ namespace MTextEditor
 		{
 			Print(this, Open, "Open");
 
-			CheckAndAskForUnsaved();
-
-			if (FileExplorer("Open", ref CurrentyOpenedFile, true))
+			if (CheckAndAskForUnsaved())
 			{
-				int Extension = FileSystem.GetExtension(CurrentyOpenedFile);
-				RTextArea.LoadFile(CurrentyOpenedFile, (RichTextBoxStreamType)Extension);
-				UnsavedChangesTracker = RTextArea.Text.GetHashCode();
+				string PreOpenFilie = CurrentyOpenedFile;
 
-				SetExtension(Extension);
+				if (FileExplorer("Open", ref CurrentyOpenedFile, true))
+				{
+					if (PreOpenFilie != CurrentyOpenedFile)
+						Clear();
+
+					int Extension = FileSystem.GetExtension(CurrentyOpenedFile);
+					RTextArea.LoadFile(CurrentyOpenedFile, (RichTextBoxStreamType)Extension);
+					UnsavedChangesTracker = RTextArea.Text.GetHashCode();
+
+					SetExtension(Extension);
+				}
+
+
+				UpdateTitle();
 			}
-
-			UpdateTitle();
 		}
 	}
 }

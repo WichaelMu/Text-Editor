@@ -73,16 +73,9 @@ namespace MTextEditor
 			);
 		}
 
-		void CheckAndAskForUnsaved()
+		bool CheckAndAskForUnsaved()
 		{
-			if (SaveUnsavedChanges() != DialogResult.Cancel)
-			{
-				RTextArea.Text = string.Empty;
-				UnsavedChangesTracker = string.Empty.GetHashCode();
-
-				CurrentyOpenedFile = string.Empty;
-				SetExtension(1);
-			}
+			return SaveUnsavedChanges() != DialogResult.Cancel;
 		}
 
 		bool HasUnsavedChanges() => UnsavedChangesTracker != RTextArea.Text.GetHashCode();
@@ -102,7 +95,7 @@ namespace MTextEditor
 
 					if (Response == DialogResult.Yes)
 					{
-						SaveRTextAreaToFile(CurrentyOpenedFile);
+						Save();
 					}
 				}
 				else
@@ -113,7 +106,7 @@ namespace MTextEditor
 
 					if (Response == DialogResult.Yes)
 					{
-						SaveAs();
+						return SaveAs();
 					}
 				}
 			}
@@ -136,6 +129,14 @@ namespace MTextEditor
 			{
 				Text = "Text Editor";
 			}
+		}
+
+		void Clear()
+		{
+			RTextArea.Text = string.Empty;
+			UnsavedChangesTracker = string.Empty.GetHashCode();
+
+			SetExtension(1);
 		}
 	}
 }
