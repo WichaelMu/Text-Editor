@@ -32,6 +32,13 @@ namespace MTextEditor
 				case Keys.Control | Keys.I:
 					Italics();
 					return true;
+
+				case Keys.Control | Keys.Shift | Keys.OemPeriod:
+					AdjustFontSizeShortcut(1);
+					break;
+				case Keys.Control | Keys.Shift | Keys.Oemcomma:
+					AdjustFontSizeShortcut(-1);
+					break;
 			}
 
 			return base.ProcessCmdKey(ref Message, Key);
@@ -191,6 +198,17 @@ namespace MTextEditor
 		void Tools_FontSize_LeftFocus(object sender, EventArgs e)
 		{
 			RTextArea.Focus();
+		}
+
+		void AdjustFontSizeShortcut(int Direction)
+		{
+			int Final = TSFontSize.SelectedIndex + Direction;
+
+			if (Final == -1 || Final == TSFontSize.Items.Count)
+				return;
+
+			TSFontSize.SelectedIndex = Final;
+			TSFontSize.Text = TSFontSize.Items[Final].ToString();
 		}
 	}
 }
