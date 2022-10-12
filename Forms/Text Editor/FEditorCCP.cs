@@ -6,6 +6,9 @@ namespace MTextEditor
 	{
 		void Cut()
 		{
+			if (MUser.Get().Type < EUserTypes.Edit)
+				return;
+
 			Print(this, Cut, "Cut");
 
 			if (RTextArea.SelectionLength > 0)
@@ -22,6 +25,9 @@ namespace MTextEditor
 
 		void Paste()
 		{
+			if (MUser.Get().Type < EUserTypes.Edit)
+				return;
+
 			Print(this, Paste, "Paste");
 
 			RTextArea.Paste();

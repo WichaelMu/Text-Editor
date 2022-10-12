@@ -10,6 +10,9 @@ namespace MTextEditor
 		/// <summary>Saves the <see cref="CurrentyOpenedFile"/> or <see cref="SaveAs"/> if no file exists.</summary>
 		void Save()
 		{
+			if (MUser.Get().Type < EUserTypes.Edit)
+				return;
+
 			if (string.IsNullOrEmpty(CurrentyOpenedFile))
 			{
 				SaveAs();

@@ -44,7 +44,7 @@ namespace MTextEditor
 
 			EUserType.Items.Add(EUserTypes.View);
 			EUserType.Items.Add(EUserTypes.Edit);
-			EUserType.Text = EUserType.Items[0].ToString();
+			EUserType.SelectedIndex = 0;
 		}
 
 		public void Tick(float DeltaTime)
@@ -90,6 +90,8 @@ namespace MTextEditor
 			{
 				LLoginFailMessage.Visible = true;
 				LLoginFailMessage.Text = "Incorrect Username or Password!";
+
+				TLoginPassword.Text = string.Empty;
 			}
 		}
 

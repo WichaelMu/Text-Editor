@@ -9,6 +9,10 @@ namespace MTextEditor
 		internal string CurrentyOpenedFile = "";
 		internal int UnsavedChangesTracker = string.Empty.GetHashCode();
 
+		const int kMinimumFontSize = 8;
+		const int kMaximumFontSize = 20;
+		const int kDefaultFontSize = 11;
+
 		public FEditor()
 		{
 			InitializeComponent();
@@ -36,6 +40,14 @@ namespace MTextEditor
 		void Start(object Sender, EventArgs E)
 		{
 			LLoggedInUser.Text = "Username: " + MUser.Get().Username;
+
+			RTextArea.ReadOnly = MUser.Get().Type < EUserTypes.Edit;
+
+			for (int i = kMinimumFontSize; i <= kMaximumFontSize; ++i)
+				TSFontSize.Items.Add(i.ToString());
+
+			TSFontSize.SelectedIndex = 3; // 11
+			AdjustFontSize(kDefaultFontSize);
 		}
 
 		void FEditor_Closing(object Sender, FormClosingEventArgs E)
@@ -52,12 +64,23 @@ namespace MTextEditor
 		void Tools_New(object Sender, EventArgs E) => New();
 		void Tools_Open(object Sender, EventArgs E) => Open();
 		void Tools_Save(object Sender, EventArgs E) => Save();
-		void Tools_SaveAs(object Sender, EventArgs E) => SaveAs();
+
+		void Tools_SaveAs(object Sender, EventArgs E)
+		{
+			if (MUser.Get().Type < EUserTypes.Edit)
+				return;
+
+			SaveAs();
+		}
 
 		// Text Manipulation
 		void Tools_Cut(object Sender, EventArgs E) => Cut();
 		void Tools_Copy(object Sender, EventArgs E) => Copy();
 		void Tools_Paste(object Sender, EventArgs E) => Paste();
+
+		void Tools_Bold(object Sender, EventArgs E) => Bold();
+		void Tools_Underline(object Sender, EventArgs E) => Underline();
+		void Tools_Italics(object Sender, EventArgs E) => Italics();
 
 		void Tools_Logout(object Sender, EventArgs E)
 		{
@@ -123,6 +146,7 @@ namespace MTextEditor
 		void RTextChanged(object Sender, EventArgs E)
 		{
 			UpdateTitle();
+			HandleRollingFontSize();
 		}
 
 		void UpdateTitle()
@@ -144,6 +168,29 @@ namespace MTextEditor
 			UnsavedChangesTracker = string.Empty.GetHashCode();
 
 			SetExtension(1);
+		}
+
+		void CheckAndApplyFontSize()
+		{
+			if (int.TryParse(TSFontSize.Text, out int OutSize))
+			{
+				AdjustFontSize(OutSize);
+				RTextArea.Focus();
+			}
+			else
+			{
+				TSFontSize.Text = kDefaultFontSize.ToString();
+			}
+		}
+
+		void Tools_FontSize(object Sender, EventArgs E)
+		{
+			CheckAndApplyFontSize();
+		}
+
+		void Tools_FontSize_LeftFocus(object sender, EventArgs e)
+		{
+			RTextArea.Focus();
 		}
 	}
 }

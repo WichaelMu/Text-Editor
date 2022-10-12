@@ -6,6 +6,9 @@ namespace MTextEditor
 	{
 		void New()
 		{
+			if (MUser.Get().Type < EUserTypes.Edit)
+				return;
+
 			Print(this, New, "New");
 
 			if (CheckAndAskForUnsaved())
