@@ -35,10 +35,10 @@ namespace MTextEditor
 
 				case Keys.Control | Keys.Shift | Keys.OemPeriod:
 					AdjustFontSizeShortcut(1);
-					break;
+					return true;
 				case Keys.Control | Keys.Shift | Keys.Oemcomma:
 					AdjustFontSizeShortcut(-1);
-					break;
+					return true;
 			}
 
 			return base.ProcessCmdKey(ref Message, Key);
@@ -46,7 +46,8 @@ namespace MTextEditor
 
 		void Start(object Sender, EventArgs E)
 		{
-			LLoggedInUser.Text = "Username: " + MUser.Get().Username;
+			MUser LoggedInUser = MUser.Get();
+			LLoggedInUser.Text = $"Username: {LoggedInUser.Username}        {LoggedInUser.FirstName} {LoggedInUser.LastName}";
 
 			RTextArea.ReadOnly = MUser.Get().Type < EUserTypes.Edit;
 
@@ -195,7 +196,7 @@ namespace MTextEditor
 			CheckAndApplyFontSize();
 		}
 
-		void Tools_FontSize_LeftFocus(object sender, EventArgs e)
+		void Tools_FontSize_LeftFocus(object Sender, EventArgs E)
 		{
 			RTextArea.Focus();
 		}

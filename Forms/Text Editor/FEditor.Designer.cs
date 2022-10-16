@@ -93,7 +93,7 @@
 			this.TSNew.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.TSNew.Name = "TSNew";
 			this.TSNew.Size = new System.Drawing.Size(23, 22);
-			this.TSNew.Text = "toolStripButton1";
+			this.TSNew.Text = "New";
 			this.TSNew.Click += new System.EventHandler(this.Tools_New);
 			// 
 			// TSOpen
@@ -103,7 +103,7 @@
 			this.TSOpen.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.TSOpen.Name = "TSOpen";
 			this.TSOpen.Size = new System.Drawing.Size(23, 22);
-			this.TSOpen.Text = "toolStripButton2";
+			this.TSOpen.Text = "Open";
 			this.TSOpen.Click += new System.EventHandler(this.Tools_Open);
 			// 
 			// TSSave
@@ -113,7 +113,7 @@
 			this.TSSave.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.TSSave.Name = "TSSave";
 			this.TSSave.Size = new System.Drawing.Size(23, 22);
-			this.TSSave.Text = "toolStripButton3";
+			this.TSSave.Text = "Save";
 			this.TSSave.Click += new System.EventHandler(this.Tools_Save);
 			// 
 			// TSSaveAs
@@ -123,7 +123,7 @@
 			this.TSSaveAs.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.TSSaveAs.Name = "TSSaveAs";
 			this.TSSaveAs.Size = new System.Drawing.Size(23, 22);
-			this.TSSaveAs.Text = "toolStripButton4";
+			this.TSSaveAs.Text = "Save As";
 			this.TSSaveAs.Click += new System.EventHandler(this.Tools_SaveAs);
 			// 
 			// toolStripSeparator3
@@ -138,7 +138,7 @@
 			this.TSBold.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.TSBold.Name = "TSBold";
 			this.TSBold.Size = new System.Drawing.Size(23, 22);
-			this.TSBold.Text = "toolStripButton5";
+			this.TSBold.Text = "Bold";
 			this.TSBold.Click += new System.EventHandler(this.Tools_Bold);
 			// 
 			// TSUnderline
@@ -148,7 +148,7 @@
 			this.TSUnderline.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.TSUnderline.Name = "TSUnderline";
 			this.TSUnderline.Size = new System.Drawing.Size(23, 22);
-			this.TSUnderline.Text = "toolStripButton6";
+			this.TSUnderline.Text = "Underline";
 			this.TSUnderline.Click += new System.EventHandler(this.Tools_Underline);
 			// 
 			// TSItalics
@@ -158,7 +158,7 @@
 			this.TSItalics.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.TSItalics.Name = "TSItalics";
 			this.TSItalics.Size = new System.Drawing.Size(23, 22);
-			this.TSItalics.Text = "toolStripButton7";
+			this.TSItalics.Text = "Italics";
 			this.TSItalics.Click += new System.EventHandler(this.Tools_Italics);
 			// 
 			// TSFontSize
@@ -175,11 +175,13 @@
 			this.TSAbout.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.TSAbout.Name = "TSAbout";
 			this.TSAbout.Size = new System.Drawing.Size(23, 22);
-			this.TSAbout.Text = "toolStripButton11";
+			this.TSAbout.Text = "About";
+			this.TSAbout.ToolTipText = "About";
 			this.TSAbout.Click += new System.EventHandler(this.Tools_About);
 			// 
 			// LLoggedInUser
 			// 
+			this.LLoggedInUser.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
 			this.LLoggedInUser.Name = "LLoggedInUser";
 			this.LLoggedInUser.Size = new System.Drawing.Size(131, 22);
 			this.LLoggedInUser.Text = "## LOGGED IN USER ##";
@@ -204,7 +206,7 @@
 			this.TSCut.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.TSCut.Name = "TSCut";
 			this.TSCut.Size = new System.Drawing.Size(21, 20);
-			this.TSCut.Text = "toolStripButton8";
+			this.TSCut.Text = "Cut";
 			this.TSCut.Click += new System.EventHandler(this.Tools_Cut);
 			// 
 			// TSCopy
@@ -214,7 +216,7 @@
 			this.TSCopy.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.TSCopy.Name = "TSCopy";
 			this.TSCopy.Size = new System.Drawing.Size(21, 20);
-			this.TSCopy.Text = "toolStripButton9";
+			this.TSCopy.Text = "Copy";
 			this.TSCopy.Click += new System.EventHandler(this.Tools_Copy);
 			// 
 			// TSPaste
@@ -224,7 +226,7 @@
 			this.TSPaste.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.TSPaste.Name = "TSPaste";
 			this.TSPaste.Size = new System.Drawing.Size(21, 20);
-			this.TSPaste.Text = "toolStripButton10";
+			this.TSPaste.Text = "Paste";
 			this.TSPaste.Click += new System.EventHandler(this.Tools_Paste);
 			// 
 			// RTextArea
