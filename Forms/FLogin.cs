@@ -1,3 +1,5 @@
+#define WITH_ANIMATIONS
+
 using static global::UForm;
 using static global::MUser;
 using static IO.LoginParser;
@@ -5,10 +7,14 @@ using Engine;
 
 namespace MTextEditor
 {
-	public partial class FLogin : Form, IFormClass, ITick<FLogin>
+	public partial class FLogin : Form, IFormClass
+#if WITH_ANIMATIONS
+,ITick<FLogin>
+#endif
 	{
 		public string __CLASS__ => "FLogin";
 
+#if WITH_ANIMATIONS
 		public bool bCanTick => true;
 
 		public bool bIsTicking { get; set; }
@@ -20,12 +26,14 @@ namespace MTextEditor
 		V2 SignUpGroupStartPos;
 		V2 LoginOutOfBounds;
 		V2 SignupInboundOffset;
+#endif
 
 		public FLogin()
 		{
 			InitializeComponent();
-
+#if WITH_ANIMATIONS
 			GetTickComponent().InitialiseTickComponent();
+#endif
 		}
 
 		void Start(object Sender, EventArgs E)
@@ -33,7 +41,7 @@ namespace MTextEditor
 			LoadLogins();
 
 			Size = new Size(840, 500);
-
+#if WITH_ANIMATIONS
 			LoginGroupStartPos = LoginGroup.Location;
 
 			SignUpGroup.Location = new V2(GetBounds(this).X, SignUpGroup.Location.Y);
@@ -45,15 +53,19 @@ namespace MTextEditor
 			EUserType.Items.Add(EUserTypes.View);
 			EUserType.Items.Add(EUserTypes.Edit);
 			EUserType.SelectedIndex = 0;
+#endif
+			MessageBox.Show("Hello World", "Messagebox Demo", MessageBoxButtons.OKCancel);
 		}
 
 		public void Tick(float DeltaTime)
 		{
+#if WITH_ANIMATIONS
 			LTitle.Text = "Delta Time: " + DeltaTime.ToString("F3");
 
 			InterpGroups(bIsSigningUp, DeltaTime);
 
 			Invalidate();
+#endif
 		}
 
 		void LoadLogins()
@@ -71,7 +83,7 @@ namespace MTextEditor
 			}
 		}
 
-		#region Func Login
+#region Func Login
 
 		void OnClick_Login(object Sender, EventArgs E) => CheckLogin();
 
@@ -122,12 +134,13 @@ namespace MTextEditor
 			ShowHide<FEditor>(this);
 		}
 
-		#endregion
+#endregion
 
-		#region Func Signup
+#region Func Signup
 
 		void OnClick_Signup(object Sender, EventArgs E)
 		{
+#if WITH_ANIMATIONS
 			ESignupResponse Response = ValidateSignup(out MUser NewUser);
 			LSignupUsernameFailMessage.Visible = false;
 			LSignupPasswordFailMessage.Visible = false;
@@ -169,8 +182,10 @@ namespace MTextEditor
 					LSignupNameFailMessage.Text = "This field cannot be empty!";
 				}
 			}
+#endif
 		}
 
+#if WITH_ANIMATIONS
 		ESignupResponse ValidateSignup(out MUser NewUser)
 		{
 			ESignupResponse Response = ESignupResponse.OK;
@@ -206,9 +221,10 @@ namespace MTextEditor
 
 			return ESignupResponse.OK;
 		}
+#endif
 
-		#endregion
-
+#endregion
+#if WITH_ANIMATIONS
 		public ITick<FLogin> GetTickComponent() => (ITick<FLogin>)this;
 
 		//V2 RefLoginGroupVelocity;
@@ -239,23 +255,30 @@ namespace MTextEditor
 			LoginGroup.Enabled = !bIsSigningUp;
 			SignUpGroup.Enabled = bIsSigningUp;
 		}
+#endif
 
 		void OnClick_ShowLogin(object Sender, EventArgs E)
 		{
+#if WITH_ANIMATIONS
 			T = 0f;
 			bIsSigningUp = false;
 
 			LSignupUsernameFailMessage.Visible = false;
 			LSignupPasswordFailMessage.Visible = false;
 			LSignupNameFailMessage.Visible = false;
+#endif
 		}
 
 		void OnClick_ShowSignup(object sender, EventArgs e)
 		{
+#if WITH_ANIMATIONS
 			T = 0f;
 			bIsSigningUp = true;
 
 			LLoginFailMessage.Visible = false;
+#else
+			ShowHide<FSignup>(this);
+#endif
 		}
 
 		void FLogin_OnKeyDown(object Sender, KeyEventArgs E)
