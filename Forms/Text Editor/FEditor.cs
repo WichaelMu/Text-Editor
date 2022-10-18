@@ -49,7 +49,7 @@ namespace MTextEditor
 			MUser LoggedInUser = MUser.Get();
 			LLoggedInUser.Text = $"Username: {LoggedInUser.Username}        {LoggedInUser.FirstName} {LoggedInUser.LastName}";
 
-			RTextArea.ReadOnly = MUser.Get().Type < EUserTypes.Edit;
+			RTextArea.Enabled = RTextArea.ReadOnly = MUser.Get().Type < EUserTypes.Edit;
 
 			for (int i = kMinimumFontSize; i <= kMaximumFontSize; ++i)
 				TSFontSize.Items.Add(i.ToString());
@@ -155,6 +155,7 @@ namespace MTextEditor
 		{
 			UpdateTitle();
 			HandleRollingFontSize();
+			HandleRollingBUI();
 		}
 
 		void UpdateTitle()
