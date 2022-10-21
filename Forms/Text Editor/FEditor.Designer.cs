@@ -62,6 +62,7 @@
 			this.MSPaste = new System.Windows.Forms.ToolStripMenuItem();
 			this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.MSAbout = new System.Windows.Forms.ToolStripMenuItem();
+			this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.MSMenuStrip = new System.Windows.Forms.MenuStrip();
 			this.TSTopToolStrip.SuspendLayout();
 			this.TSLeftToolStrip.SuspendLayout();
@@ -179,7 +180,7 @@
 			this.TSAbout.Size = new System.Drawing.Size(23, 22);
 			this.TSAbout.Text = "About";
 			this.TSAbout.ToolTipText = "About";
-			this.TSAbout.Click += new System.EventHandler(this.Tools_About);
+			this.TSAbout.Click += new System.EventHandler(this.Tools_Help);
 			// 
 			// LLoggedInUser
 			// 
@@ -381,7 +382,8 @@
 			// helpToolStripMenuItem
 			// 
 			this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MSAbout});
+            this.MSAbout,
+            this.helpToolStripMenuItem1});
 			this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
 			this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
 			this.helpToolStripMenuItem.Text = "Help";
@@ -391,9 +393,18 @@
 			this.MSAbout.Image = ((System.Drawing.Image)(resources.GetObject("MSAbout.Image")));
 			this.MSAbout.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
 			this.MSAbout.Name = "MSAbout";
-			this.MSAbout.Size = new System.Drawing.Size(132, 38);
-			this.MSAbout.Text = "About...";
-			this.MSAbout.Click += new System.EventHandler(this.Tools_About);
+			this.MSAbout.Size = new System.Drawing.Size(196, 38);
+			this.MSAbout.Text = "Help";
+			this.MSAbout.Click += new System.EventHandler(this.Tools_Help);
+			// 
+			// helpToolStripMenuItem1
+			// 
+			this.helpToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("helpToolStripMenuItem1.Image")));
+			this.helpToolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+			this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
+			this.helpToolStripMenuItem1.Size = new System.Drawing.Size(196, 38);
+			this.helpToolStripMenuItem1.Text = "About";
+			this.helpToolStripMenuItem1.Click += new System.EventHandler(this.Tools_About);
 			// 
 			// MSMenuStrip
 			// 
@@ -470,5 +481,6 @@
 		private MenuStrip MSMenuStrip;
 		private ToolStripSeparator toolStripSeparator4;
 		private ToolStripButton TSCompile;
+		private ToolStripMenuItem helpToolStripMenuItem1;
 	}
 }

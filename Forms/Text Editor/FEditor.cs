@@ -109,14 +109,18 @@ namespace MTextEditor
 			LoginWindow.Show();
 		}
 
-		void Tools_About(object Sender, EventArgs E)
+		void Tools_Help(object Sender, EventArgs E)
 		{
-			//MessageBox.Show("Text Editor Version 1.0\nAuthor: Michael Wu", "About Text Editor",
-			//	MessageBoxButtons.OK, MessageBoxIcon.Information
-			//);
-
 			new FHelp().Show();
 		}
+
+		void Tools_About(object sender, EventArgs e)
+		{
+			MessageBox.Show("Text Editor Version 1.0.0-Release\nAuthor: Michael Wu", "About Text Editor",
+				MessageBoxButtons.OK, MessageBoxIcon.Information
+			);
+		}
+
 
 		// Helper Functions.
 		//
