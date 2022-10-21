@@ -30,8 +30,6 @@
 		{
 			this.LTitle = new System.Windows.Forms.Label();
 			this.LoginGroup = new System.Windows.Forms.GroupBox();
-			this.radioButton5 = new System.Windows.Forms.RadioButton();
-			this.radioButton3 = new System.Windows.Forms.RadioButton();
 			this.LLoginFailMessage = new System.Windows.Forms.Label();
 			this.HSignup = new System.Windows.Forms.Label();
 			this.label8 = new System.Windows.Forms.Label();
@@ -41,8 +39,6 @@
 			this.TLoginPassword = new System.Windows.Forms.TextBox();
 			this.TLoginUsername = new System.Windows.Forms.TextBox();
 			this.SignUpGroup = new System.Windows.Forms.GroupBox();
-			this.radioButton6 = new System.Windows.Forms.RadioButton();
-			this.radioButton4 = new System.Windows.Forms.RadioButton();
 			this.LSignupNameFailMessage = new System.Windows.Forms.Label();
 			this.LSignupPasswordFailMessage = new System.Windows.Forms.Label();
 			this.LSignupUsernameFailMessage = new System.Windows.Forms.Label();
@@ -60,8 +56,6 @@
 			this.TSignupPasswordBase = new System.Windows.Forms.TextBox();
 			this.TSignupUsername = new System.Windows.Forms.TextBox();
 			this.BCancel = new System.Windows.Forms.Button();
-			this.radioButton1 = new System.Windows.Forms.RadioButton();
-			this.radioButton2 = new System.Windows.Forms.RadioButton();
 			this.LoginGroup.SuspendLayout();
 			this.SignUpGroup.SuspendLayout();
 			this.SuspendLayout();
@@ -78,8 +72,6 @@
 			// 
 			// LoginGroup
 			// 
-			this.LoginGroup.Controls.Add(this.radioButton5);
-			this.LoginGroup.Controls.Add(this.radioButton3);
 			this.LoginGroup.Controls.Add(this.LLoginFailMessage);
 			this.LoginGroup.Controls.Add(this.HSignup);
 			this.LoginGroup.Controls.Add(this.label8);
@@ -94,28 +86,6 @@
 			this.LoginGroup.TabIndex = 4;
 			this.LoginGroup.TabStop = false;
 			this.LoginGroup.Text = "Login";
-			// 
-			// radioButton5
-			// 
-			this.radioButton5.AutoSize = true;
-			this.radioButton5.Location = new System.Drawing.Point(29, 205);
-			this.radioButton5.Name = "radioButton5";
-			this.radioButton5.Size = new System.Drawing.Size(94, 19);
-			this.radioButton5.TabIndex = 18;
-			this.radioButton5.TabStop = true;
-			this.radioButton5.Text = "radioButton5";
-			this.radioButton5.UseVisualStyleBackColor = true;
-			// 
-			// radioButton3
-			// 
-			this.radioButton3.AutoSize = true;
-			this.radioButton3.Location = new System.Drawing.Point(169, 194);
-			this.radioButton3.Name = "radioButton3";
-			this.radioButton3.Size = new System.Drawing.Size(94, 19);
-			this.radioButton3.TabIndex = 17;
-			this.radioButton3.TabStop = true;
-			this.radioButton3.Text = "radioButton3";
-			this.radioButton3.UseVisualStyleBackColor = true;
 			// 
 			// LLoginFailMessage
 			// 
@@ -197,8 +167,6 @@
 			// 
 			// SignUpGroup
 			// 
-			this.SignUpGroup.Controls.Add(this.radioButton6);
-			this.SignUpGroup.Controls.Add(this.radioButton4);
 			this.SignUpGroup.Controls.Add(this.LSignupNameFailMessage);
 			this.SignUpGroup.Controls.Add(this.LSignupPasswordFailMessage);
 			this.SignUpGroup.Controls.Add(this.LSignupUsernameFailMessage);
@@ -222,28 +190,6 @@
 			this.SignUpGroup.TabIndex = 5;
 			this.SignUpGroup.TabStop = false;
 			this.SignUpGroup.Text = "New User Sign Up";
-			// 
-			// radioButton6
-			// 
-			this.radioButton6.AutoSize = true;
-			this.radioButton6.Location = new System.Drawing.Point(121, 205);
-			this.radioButton6.Name = "radioButton6";
-			this.radioButton6.Size = new System.Drawing.Size(94, 19);
-			this.radioButton6.TabIndex = 19;
-			this.radioButton6.TabStop = true;
-			this.radioButton6.Text = "radioButton6";
-			this.radioButton6.UseVisualStyleBackColor = true;
-			// 
-			// radioButton4
-			// 
-			this.radioButton4.AutoSize = true;
-			this.radioButton4.Location = new System.Drawing.Point(44, 224);
-			this.radioButton4.Name = "radioButton4";
-			this.radioButton4.Size = new System.Drawing.Size(94, 19);
-			this.radioButton4.TabIndex = 18;
-			this.radioButton4.TabStop = true;
-			this.radioButton4.Text = "radioButton4";
-			this.radioButton4.UseVisualStyleBackColor = true;
 			// 
 			// LSignupNameFailMessage
 			// 
@@ -401,35 +347,11 @@
 			this.BCancel.UseVisualStyleBackColor = true;
 			this.BCancel.Click += new System.EventHandler(this.OnClick_ShowLogin);
 			// 
-			// radioButton1
-			// 
-			this.radioButton1.AutoSize = true;
-			this.radioButton1.Location = new System.Drawing.Point(630, 195);
-			this.radioButton1.Name = "radioButton1";
-			this.radioButton1.Size = new System.Drawing.Size(94, 19);
-			this.radioButton1.TabIndex = 6;
-			this.radioButton1.TabStop = true;
-			this.radioButton1.Text = "radioButton1";
-			this.radioButton1.UseVisualStyleBackColor = true;
-			// 
-			// radioButton2
-			// 
-			this.radioButton2.AutoSize = true;
-			this.radioButton2.Location = new System.Drawing.Point(647, 247);
-			this.radioButton2.Name = "radioButton2";
-			this.radioButton2.Size = new System.Drawing.Size(94, 19);
-			this.radioButton2.TabIndex = 7;
-			this.radioButton2.TabStop = true;
-			this.radioButton2.Text = "radioButton2";
-			this.radioButton2.UseVisualStyleBackColor = true;
-			// 
 			// FLogin
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1436, 457);
-			this.Controls.Add(this.radioButton2);
-			this.Controls.Add(this.radioButton1);
 			this.Controls.Add(this.SignUpGroup);
 			this.Controls.Add(this.LoginGroup);
 			this.Controls.Add(this.LTitle);
@@ -480,11 +402,5 @@
 		private Label LLoginFailMessage;
 		private Label LSignupPasswordFailMessage;
 		private Label LSignupNameFailMessage;
-		private RadioButton radioButton5;
-		private RadioButton radioButton3;
-		private RadioButton radioButton6;
-		private RadioButton radioButton4;
-		private RadioButton radioButton1;
-		private RadioButton radioButton2;
 	}
 }

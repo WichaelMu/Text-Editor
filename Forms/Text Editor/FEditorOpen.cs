@@ -11,15 +11,15 @@ namespace MTextEditor
 
 			if (CheckAndAskForUnsaved())
 			{
-				string PreOpenFilie = CurrentyOpenedFile;
+				string PreOpenFilie = CurrentlyOpenedFile;
 
-				if (FileExplorer("Open", ref CurrentyOpenedFile, true))
+				if (FileExplorer("Open", ref CurrentlyOpenedFile, true))
 				{
-					if (PreOpenFilie != CurrentyOpenedFile)
+					if (PreOpenFilie != CurrentlyOpenedFile)
 						Clear();
 
-					int Extension = FileSystem.GetExtension(CurrentyOpenedFile);
-					RTextArea.LoadFile(CurrentyOpenedFile, (RichTextBoxStreamType)Extension);
+					int Extension = FileSystem.GetExtension(CurrentlyOpenedFile);
+					RTextArea.LoadFile(CurrentlyOpenedFile, (RichTextBoxStreamType)Extension);
 					UnsavedChangesTracker = RTextArea.Text.GetHashCode();
 
 					SetExtension(Extension);

@@ -45,6 +45,8 @@
 			this.TSCut = new System.Windows.Forms.ToolStripButton();
 			this.TSCopy = new System.Windows.Forms.ToolStripButton();
 			this.TSPaste = new System.Windows.Forms.ToolStripButton();
+			this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+			this.TSCompile = new System.Windows.Forms.ToolStripButton();
 			this.RTextArea = new System.Windows.Forms.RichTextBox();
 			this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.MSNew = new System.Windows.Forms.ToolStripMenuItem();
@@ -192,10 +194,12 @@
 			this.TSLeftToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.TSCut,
             this.TSCopy,
-            this.TSPaste});
+            this.TSPaste,
+            this.toolStripSeparator4,
+            this.TSCompile});
 			this.TSLeftToolStrip.Location = new System.Drawing.Point(0, 49);
 			this.TSLeftToolStrip.Name = "TSLeftToolStrip";
-			this.TSLeftToolStrip.Size = new System.Drawing.Size(24, 632);
+			this.TSLeftToolStrip.Size = new System.Drawing.Size(32, 632);
 			this.TSLeftToolStrip.TabIndex = 2;
 			this.TSLeftToolStrip.Text = "toolStrip1";
 			// 
@@ -205,7 +209,7 @@
 			this.TSCut.Image = ((System.Drawing.Image)(resources.GetObject("TSCut.Image")));
 			this.TSCut.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.TSCut.Name = "TSCut";
-			this.TSCut.Size = new System.Drawing.Size(21, 20);
+			this.TSCut.Size = new System.Drawing.Size(29, 20);
 			this.TSCut.Text = "Cut";
 			this.TSCut.Click += new System.EventHandler(this.Tools_Cut);
 			// 
@@ -215,7 +219,7 @@
 			this.TSCopy.Image = ((System.Drawing.Image)(resources.GetObject("TSCopy.Image")));
 			this.TSCopy.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.TSCopy.Name = "TSCopy";
-			this.TSCopy.Size = new System.Drawing.Size(21, 20);
+			this.TSCopy.Size = new System.Drawing.Size(29, 20);
 			this.TSCopy.Text = "Copy";
 			this.TSCopy.Click += new System.EventHandler(this.Tools_Copy);
 			// 
@@ -225,9 +229,24 @@
 			this.TSPaste.Image = ((System.Drawing.Image)(resources.GetObject("TSPaste.Image")));
 			this.TSPaste.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.TSPaste.Name = "TSPaste";
-			this.TSPaste.Size = new System.Drawing.Size(21, 20);
+			this.TSPaste.Size = new System.Drawing.Size(29, 20);
 			this.TSPaste.Text = "Paste";
 			this.TSPaste.Click += new System.EventHandler(this.Tools_Paste);
+			// 
+			// toolStripSeparator4
+			// 
+			this.toolStripSeparator4.Name = "toolStripSeparator4";
+			this.toolStripSeparator4.Size = new System.Drawing.Size(29, 6);
+			// 
+			// TSCompile
+			// 
+			this.TSCompile.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.TSCompile.Image = ((System.Drawing.Image)(resources.GetObject("TSCompile.Image")));
+			this.TSCompile.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.TSCompile.Name = "TSCompile";
+			this.TSCompile.Size = new System.Drawing.Size(29, 20);
+			this.TSCompile.Text = "Compile C# Source";
+			this.TSCompile.Click += new System.EventHandler(this.Tools_Compile);
 			// 
 			// RTextArea
 			// 
@@ -446,5 +465,7 @@
 		private ToolStripMenuItem helpToolStripMenuItem;
 		private ToolStripMenuItem MSAbout;
 		private MenuStrip MSMenuStrip;
+		private ToolStripSeparator toolStripSeparator4;
+		private ToolStripButton TSCompile;
 	}
 }

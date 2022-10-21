@@ -14,7 +14,7 @@ namespace MTextEditor
 			if (CheckAndAskForUnsaved())
 			{
 				Clear();
-				CurrentyOpenedFile = string.Empty;
+				CurrentlyOpenedFile = string.Empty;
 			}
 
 			UpdateTitle();

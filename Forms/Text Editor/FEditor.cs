@@ -1,4 +1,5 @@
-﻿using static UForm;
+﻿using System.Diagnostics;
+using static UForm;
 
 namespace MTextEditor
 {
@@ -6,8 +7,10 @@ namespace MTextEditor
 	{
 		public string __CLASS__ => "FEditor";
 
-		internal string CurrentyOpenedFile = "";
+		internal string CurrentlyOpenedFile = "";
 		internal int UnsavedChangesTracker = string.Empty.GetHashCode();
+
+		internal bool bIsDirty;
 
 		const int kMinimumFontSize = 8;
 		const int kMaximumFontSize = 20;
@@ -33,6 +36,10 @@ namespace MTextEditor
 					Italics();
 					return true;
 
+				case Keys.Control | Keys.D1:
+					TryCompile();
+					return true;
+
 				case Keys.Control | Keys.Shift | Keys.OemPeriod:
 					AdjustFontSizeShortcut(1);
 					return true;
@@ -49,7 +56,7 @@ namespace MTextEditor
 			MUser LoggedInUser = MUser.Get();
 			LLoggedInUser.Text = $"Username: {LoggedInUser.Username}        {LoggedInUser.FirstName} {LoggedInUser.LastName}";
 
-			RTextArea.Enabled = RTextArea.ReadOnly = MUser.Get().Type < EUserTypes.Edit;
+			RTextArea.ReadOnly = MUser.Get().Type < EUserTypes.Edit;
 
 			for (int i = kMinimumFontSize; i <= kMaximumFontSize; ++i)
 				TSFontSize.Items.Add(i.ToString());
@@ -112,7 +119,7 @@ namespace MTextEditor
 			return SaveUnsavedChanges() != DialogResult.Cancel;
 		}
 
-		/// <returns><see langword="true"/> if there are unsaved changes in <see cref="RTextArea"/> as compared to <see cref="CurrentyOpenedFile"/>.</returns>
+		/// <returns><see langword="true"/> if there are unsaved changes in <see cref="RTextArea"/> as compared to <see cref="CurrentlyOpenedFile"/>.</returns>
 		bool HasUnsavedChanges() => UnsavedChangesTracker != RTextArea.Text.GetHashCode();
 
 		/// <summary>Prompts the <see cref="MUser"/> to save any unsaved changes to their currently opened file.</summary>
@@ -123,10 +130,10 @@ namespace MTextEditor
 
 			if (HasUnsavedChanges())
 			{
-				if (!string.IsNullOrEmpty(CurrentyOpenedFile))
+				if (!string.IsNullOrEmpty(CurrentlyOpenedFile))
 				{
 					Response = MessageBox.Show("You have unsaved changes.\n" +
-						$"Do you want to save your changes to: '{CurrentyOpenedFile}'?",
+						$"Do you want to save your changes to: '{CurrentlyOpenedFile}'?",
 						"Unsaved Changes",
 						MessageBoxButtons.YesNoCancel, MessageBoxIcon.Exclamation);
 
@@ -162,11 +169,25 @@ namespace MTextEditor
 		{
 			if (HasUnsavedChanges())
 			{
-				Text = "Text Editor*";
+				if (string.IsNullOrEmpty(CurrentlyOpenedFile))
+				{
+					Text = "Text Editor";
+				}
+				else
+				{
+					Text = $"Text Editor | {Path.GetFileName(CurrentlyOpenedFile)}*";
+				}
 			}
 			else
 			{
-				Text = "Text Editor";
+				if (string.IsNullOrEmpty(CurrentlyOpenedFile))
+				{
+					Text = "Text Editor";
+				}
+				else
+				{
+					Text = $"Text Editor | {Path.GetFileName(CurrentlyOpenedFile)}";
+				}
 			}
 		}
 
@@ -211,6 +232,42 @@ namespace MTextEditor
 
 			TSFontSize.SelectedIndex = Final;
 			TSFontSize.Text = TSFontSize.Items[Final].ToString();
+
+			SetDirty();
+		}
+
+		void SetDirty() => bIsDirty = true;
+
+		void Tools_Compile(object Sender, EventArgs E)
+		{
+			TryCompile();
+		}
+
+		void TryCompile()
+		{
+			if (string.IsNullOrEmpty(CurrentlyOpenedFile))
+			{
+				MessageBox.Show("Open a valid C# Source File, or Save this file as a C# Source File to compile.", "Compilation Error",
+					MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+			else
+			{
+				if (Path.GetExtension(CurrentlyOpenedFile) == ".cs")
+				{
+					CompileAndRun();
+				}
+				else
+				{
+					MessageBox.Show($"{Path.GetFileName(CurrentlyOpenedFile)} is not a C# Source File.", "Compilation Error",
+						MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
+			}
+		}
+
+		void CompileAndRun()
+		{
+			Print(this, CompileAndRun, "Compiling");
+			Process.Start("cmd.exe", $"/C csc {CurrentlyOpenedFile} && {Path.GetFileName(CurrentlyOpenedFile.TrimEnd('.', 'c', 's'))}.exe && pause");
 		}
 	}
 }

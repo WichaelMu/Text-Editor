@@ -7,13 +7,13 @@ namespace MTextEditor
 {
 	public partial class FEditor
 	{
-		/// <summary>Saves the <see cref="CurrentyOpenedFile"/> or <see cref="SaveAs"/> if no file exists.</summary>
+		/// <summary>Saves the <see cref="CurrentlyOpenedFile"/> or <see cref="SaveAs"/> if no file exists.</summary>
 		void Save()
 		{
 			if (MUser.Get().Type < EUserTypes.Edit)
 				return;
 
-			if (string.IsNullOrEmpty(CurrentyOpenedFile))
+			if (string.IsNullOrEmpty(CurrentlyOpenedFile))
 			{
 				SaveAs();
 			}
@@ -21,22 +21,22 @@ namespace MTextEditor
 			{
 				Print(this, Save, "Save");
 
-				SaveRTextAreaToFile(CurrentyOpenedFile);
+				SaveRTextAreaToFile(CurrentlyOpenedFile);
 				UnsavedChangesTracker = RTextArea.Text.GetHashCode();
 			}
 
 			UpdateTitle();
 		}
 
-		/// <summary>Saves the <see cref="CurrentyOpenedFile"/> as either <see cref="kTXT"/> or <see cref="kRTF"/>.</summary>
+		/// <summary>Saves the <see cref="CurrentlyOpenedFile"/> as either <see cref="kTXT"/> or <see cref="kRTF"/>.</summary>
 		/// <returns><see cref="DialogResult"/> reporting any cancel operations.</returns>
 		DialogResult SaveAs()
 		{
 			Print(this, SaveAs, "Save As");
 
-			if (FileExplorer("Save As", ref CurrentyOpenedFile, false, out DialogResult Response))
+			if (FileExplorer("Save As", ref CurrentlyOpenedFile, false, out DialogResult Response))
 			{
-				SaveRTextAreaToFile(CurrentyOpenedFile);
+				SaveRTextAreaToFile(CurrentlyOpenedFile);
 
 				UnsavedChangesTracker = RTextArea.Text.GetHashCode();
 			}
@@ -49,7 +49,7 @@ namespace MTextEditor
 		async void SaveRTextAreaToFile(string Path)
 		{
 			await WriteToFile("", Path, EWriteMode.Overwrite, Encoding.Default,
-				GetExtension(CurrentyOpenedFile) == 0 ? RTextArea.Rtf : RTextArea.Text);
+				GetExtension(CurrentlyOpenedFile) == 0 ? RTextArea.Rtf : RTextArea.Text);
 		}
 	}
 }

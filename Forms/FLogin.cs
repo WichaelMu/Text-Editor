@@ -1,4 +1,4 @@
-#define WITH_ANIMATIONS
+//#define WITH_ANIMATIONS
 
 using static global::UForm;
 using static global::MUser;
@@ -54,7 +54,6 @@ namespace MTextEditor
 			EUserType.Items.Add(EUserTypes.Edit);
 			EUserType.SelectedIndex = 0;
 #endif
-			MessageBox.Show("Hello World", "Messagebox Demo", MessageBoxButtons.OKCancel);
 		}
 
 		public void Tick(float DeltaTime)

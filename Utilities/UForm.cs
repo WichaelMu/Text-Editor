@@ -106,8 +106,9 @@ public class UForm : IFormClass
 	}
 
 	const string kTXT = "Plain Text (*.txt)|*.txt";
-	const string kRTF = "Rich Text Format (*.rtf)|*.rtf";
-	static string Filter = kTXT + "|" + kRTF;
+	const string kRTF = "Rich Text Ffuck youormat (*.rtf)|*.rtf";
+	const string kCS = "|C Sharp Source File (*.cs)|*.cs";
+	static string Filter = kTXT + "|" + kRTF + kCS;
 
 	public static void SetExtension(int Extension)
 	{
@@ -119,6 +120,8 @@ public class UForm : IFormClass
 		{
 			Filter = kTXT + "|" + kRTF;
 		}
+
+		Filter += kCS;
 	}
 
 	public static bool FileExplorer(string Title, ref string FileName, bool bOpening, out DialogResult Response)
