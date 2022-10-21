@@ -111,9 +111,11 @@ namespace MTextEditor
 
 		void Tools_About(object Sender, EventArgs E)
 		{
-			MessageBox.Show("Text Editor Version 1.0\nAuthor: Michael Wu", "About Text Editor",
-				MessageBoxButtons.OK, MessageBoxIcon.Information
-			);
+			//MessageBox.Show("Text Editor Version 1.0\nAuthor: Michael Wu", "About Text Editor",
+			//	MessageBoxButtons.OK, MessageBoxIcon.Information
+			//);
+
+			new FHelp().Show();
 		}
 
 		// Helper Functions.

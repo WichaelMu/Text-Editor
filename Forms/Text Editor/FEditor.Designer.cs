@@ -199,7 +199,7 @@
             this.TSCompile});
 			this.TSLeftToolStrip.Location = new System.Drawing.Point(0, 49);
 			this.TSLeftToolStrip.Name = "TSLeftToolStrip";
-			this.TSLeftToolStrip.Size = new System.Drawing.Size(32, 632);
+			this.TSLeftToolStrip.Size = new System.Drawing.Size(24, 632);
 			this.TSLeftToolStrip.TabIndex = 2;
 			this.TSLeftToolStrip.Text = "toolStrip1";
 			// 
@@ -209,7 +209,7 @@
 			this.TSCut.Image = ((System.Drawing.Image)(resources.GetObject("TSCut.Image")));
 			this.TSCut.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.TSCut.Name = "TSCut";
-			this.TSCut.Size = new System.Drawing.Size(29, 20);
+			this.TSCut.Size = new System.Drawing.Size(21, 20);
 			this.TSCut.Text = "Cut";
 			this.TSCut.Click += new System.EventHandler(this.Tools_Cut);
 			// 
@@ -219,7 +219,7 @@
 			this.TSCopy.Image = ((System.Drawing.Image)(resources.GetObject("TSCopy.Image")));
 			this.TSCopy.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.TSCopy.Name = "TSCopy";
-			this.TSCopy.Size = new System.Drawing.Size(29, 20);
+			this.TSCopy.Size = new System.Drawing.Size(21, 20);
 			this.TSCopy.Text = "Copy";
 			this.TSCopy.Click += new System.EventHandler(this.Tools_Copy);
 			// 
@@ -229,14 +229,14 @@
 			this.TSPaste.Image = ((System.Drawing.Image)(resources.GetObject("TSPaste.Image")));
 			this.TSPaste.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.TSPaste.Name = "TSPaste";
-			this.TSPaste.Size = new System.Drawing.Size(29, 20);
+			this.TSPaste.Size = new System.Drawing.Size(21, 20);
 			this.TSPaste.Text = "Paste";
 			this.TSPaste.Click += new System.EventHandler(this.Tools_Paste);
 			// 
 			// toolStripSeparator4
 			// 
 			this.toolStripSeparator4.Name = "toolStripSeparator4";
-			this.toolStripSeparator4.Size = new System.Drawing.Size(29, 6);
+			this.toolStripSeparator4.Size = new System.Drawing.Size(21, 6);
 			// 
 			// TSCompile
 			// 
@@ -244,13 +244,16 @@
 			this.TSCompile.Image = ((System.Drawing.Image)(resources.GetObject("TSCompile.Image")));
 			this.TSCompile.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.TSCompile.Name = "TSCompile";
-			this.TSCompile.Size = new System.Drawing.Size(29, 20);
+			this.TSCompile.Size = new System.Drawing.Size(21, 20);
 			this.TSCompile.Text = "Compile C# Source";
 			this.TSCompile.Click += new System.EventHandler(this.Tools_Compile);
 			// 
 			// RTextArea
 			// 
 			this.RTextArea.AcceptsTab = true;
+			this.RTextArea.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.RTextArea.Location = new System.Drawing.Point(27, 52);
 			this.RTextArea.Name = "RTextArea";
 			this.RTextArea.Size = new System.Drawing.Size(1225, 617);
