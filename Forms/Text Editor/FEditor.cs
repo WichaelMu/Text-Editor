@@ -93,9 +93,13 @@ namespace MTextEditor
 		void Tools_Copy(object Sender, EventArgs E) => Copy();
 		void Tools_Paste(object Sender, EventArgs E) => Paste();
 
+		// BUI.
 		void Tools_Bold(object Sender, EventArgs E) => Bold();
 		void Tools_Underline(object Sender, EventArgs E) => Underline();
 		void Tools_Italics(object Sender, EventArgs E) => Italics();
+
+		// Misc.
+		//
 
 		void Tools_Logout(object Sender, EventArgs E)
 		{
@@ -111,6 +115,9 @@ namespace MTextEditor
 				MessageBoxButtons.OK, MessageBoxIcon.Information
 			);
 		}
+
+		// Helper Functions.
+		//
 
 		/// <summary>Ask the <see cref="MUser"/> if they want to save their changes.</summary>
 		/// <returns><see langword="True"/> for <see cref="DialogResult.Yes"/> <b>AND</b> <see cref="DialogResult.No"/>.</returns>
@@ -232,11 +239,7 @@ namespace MTextEditor
 
 			TSFontSize.SelectedIndex = Final;
 			TSFontSize.Text = TSFontSize.Items[Final].ToString();
-
-			SetDirty();
 		}
-
-		void SetDirty() => bIsDirty = true;
 
 		void Tools_Compile(object Sender, EventArgs E)
 		{

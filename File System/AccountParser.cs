@@ -3,6 +3,7 @@ using static UForm;
 
 namespace IO
 {
+	/// <summary>The logic that parses <see cref="MUser"/> Login information.</summary>
 	public static class LoginParser
 	{
 		public const char kDelimiter = ',';
@@ -73,6 +74,7 @@ namespace IO
 			return new MUser(UN, PW, T, FN, LN, DateTime.Parse(DB));
 		}
 
+		/// <summary>The <see cref="EUserTypes"/> of the <see cref="MUser"/> being parsed.</summary>
 		public static EUserTypes GetUType(string Type)
 		{
 			if (Type == nameof(EUserTypes.View))
@@ -81,6 +83,7 @@ namespace IO
 		}
 #endif
 
+#if ASSIGNMENT_1
 		/// <summary>The next Unique Account Number.</summary>
 		public static int Unique { get => GetNextAccountNumber(); }
 		// 8-Digit number.
@@ -97,5 +100,6 @@ namespace IO
 
 			return UniqueAccountNumber;
 		}
+#endif
 	}
 }

@@ -1,4 +1,5 @@
-﻿using static global::UForm;
+﻿using MB = System.Windows.Forms.MessageBox;
+using static global::UForm;
 using static global::MUser;
 using static IO.LoginParser;
 
@@ -34,6 +35,7 @@ namespace MTextEditor
 			if (Response == ESignupResponse.OK)
 			{
 				AllUsers.Add(NewUser.Username, NewUser);
+				MB.Show("You have Successfully Signed Up to use MTextEditor", "Successful Sign Up", MessageBoxButtons.OK, MessageBoxIcon.Information);
 				ShowHide<FLogin>(this);
 			}
 			else

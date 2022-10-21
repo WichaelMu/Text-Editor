@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace Engine
 {
+	/// <summary>A Mathematics Library for MTextEditor.</summary>
 	public static class FMath
 	{
 		/// <summary>1 / sqrt(N).</summary>
@@ -25,13 +22,13 @@ namespace Engine
 			return ISqrt;
 		}
 
-		/// <summary>Faster version of <see cref="UnityEngine.Mathf.Sqrt(float)"/>.</summary>
+		/// <summary>Faster version of <see cref="Math.Sqrt(float)"/>.</summary>
 		/// <param name="F"></param>
 		/// <param name="Iterations">The number of Newton Iterations to perform.</param>
 		/// <returns>An approximation for the Square Root of F.</returns>
 		public static float Sqrt(float F, int Iterations = 2) => InverseSqrt((F < 0.0001f) ? 0.0001f : F, Iterations) * F;
 
-		/// <summary>Faster version of <see cref="UnityEngine.Mathf.Asin(float)"/>.</summary>
+		/// <summary>Faster version of <see cref="Math.Asin(float)"/>.</summary>
 		/// <param name="Angle">The angle to get the inverse Sine of.</param>
 		/// <returns>Inverse Sine of Angle.</returns>
 		public static float ArcSine(float Angle)

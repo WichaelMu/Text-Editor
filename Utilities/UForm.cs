@@ -106,7 +106,7 @@ public class UForm : IFormClass
 	}
 
 	const string kTXT = "Plain Text (*.txt)|*.txt";
-	const string kRTF = "Rich Text Ffuck youormat (*.rtf)|*.rtf";
+	const string kRTF = "Rich Text Format (*.rtf)|*.rtf";
 	const string kCS = "|C Sharp Source File (*.cs)|*.cs";
 	static string Filter = kTXT + "|" + kRTF + kCS;
 

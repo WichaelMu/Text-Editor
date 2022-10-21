@@ -101,7 +101,7 @@ namespace MTextEditor
 			{
 				int Insert = RTextArea.SelectionStart;
 
-				for (; RTextArea.SelectionStart < End + Insert;)
+				while (RTextArea.SelectionStart < End + Insert)
 				{
 					RTextArea.SelectionLength = 1;
 					RTextArea.SelectionFont = new Font(GetCurrentFont(), SetOrInvertStyle(InStyle));
@@ -125,8 +125,6 @@ namespace MTextEditor
 				RTextArea.SelectionFont = new Font(SelectedFont.Name, InSize, SelectedFont.Style);
 
 				SetExtension(0);
-
-				SetDirty();
 			}
 		}
 
@@ -178,8 +176,6 @@ namespace MTextEditor
 				// Set RTF only when there a BUI has been activated.
 				if (((byte)ActiveStyles & 7) != 0)
 					SetExtension(0);
-
-				SetDirty();
 			}
 		}
 	}
