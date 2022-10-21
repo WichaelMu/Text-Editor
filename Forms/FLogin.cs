@@ -54,6 +54,8 @@ namespace MTextEditor
 			EUserType.Items.Add(EUserTypes.Edit);
 			EUserType.SelectedIndex = 0;
 #endif
+
+			UpdateTheme();
 		}
 
 		public void Tick(float DeltaTime)
@@ -82,7 +84,7 @@ namespace MTextEditor
 			}
 		}
 
-#region Func Login
+		#region Func Login
 
 		void OnClick_Login(object Sender, EventArgs E) => CheckLogin();
 
@@ -133,9 +135,9 @@ namespace MTextEditor
 			ShowHide<FEditor>(this);
 		}
 
-#endregion
+		#endregion
 
-#region Func Signup
+		#region Func Signup
 
 		void OnClick_Signup(object Sender, EventArgs E)
 		{
@@ -222,7 +224,7 @@ namespace MTextEditor
 		}
 #endif
 
-#endregion
+		#endregion
 #if WITH_ANIMATIONS
 		public ITick<FLogin> GetTickComponent() => (ITick<FLogin>)this;
 
@@ -291,6 +293,33 @@ namespace MTextEditor
 		void FLogin_Closed(object Sender, FormClosedEventArgs E)
 		{
 			Application.Exit();
+		}
+
+		void UpdateTheme()
+		{
+			if (MFormSettings.bIsLightTheme)
+			{
+				BackColor = LoginGroup.BackColor = SignUpGroup.BackColor = TLoginUsername.BackColor = TLoginPassword.BackColor = MFormSettings.LightThemeColour;
+				ForeColor = LoginGroup.ForeColor = SignUpGroup.ForeColor = TLoginUsername.ForeColor = TLoginPassword.ForeColor = BLogin.ForeColor = MFormSettings.LightThemeForeColour;
+
+#if WITH_ANIMATIONS
+				TSignupUsername.BackColor = TSignupPasswordBase.BackColor = TSignupPasswordComparison.BackColor = TFirstName.BackColor = TLastName.BackColor = DBirthday.CalendarTitleBackColor = EUserType.BackColor = MFormSettings.LightThemeColour;
+				TSignupUsername.ForeColor = TSignupPasswordBase.ForeColor = TSignupPasswordComparison.ForeColor = TFirstName.ForeColor = TLastName.ForeColor = DBirthday.CalendarTitleForeColor = EUserType.ForeColor = MFormSettings.LightThemeForeColour;
+#endif
+			}
+			else
+			{
+				BackColor = LoginGroup.BackColor = SignUpGroup.BackColor = TLoginUsername.BackColor = TLoginPassword.BackColor = MFormSettings.DarkThemeColour;
+				ForeColor = LoginGroup.ForeColor = SignUpGroup.ForeColor = TLoginUsername.ForeColor = TLoginPassword.ForeColor = MFormSettings.DarkThemeForeColour;
+				BLogin.ForeColor = MFormSettings.LightThemeForeColour;
+
+#if WITH_ANIMATIONS
+				TSignupUsername.BackColor = TSignupPasswordBase.BackColor = TSignupPasswordComparison.BackColor = TFirstName.BackColor = TLastName.BackColor = DBirthday.CalendarTitleBackColor = EUserType.BackColor = MFormSettings.DarkThemeColour;
+				TSignupUsername.ForeColor = TSignupPasswordBase.ForeColor = TSignupPasswordComparison.ForeColor = TFirstName.ForeColor = TLastName.ForeColor = DBirthday.CalendarTitleForeColor = EUserType.ForeColor = MFormSettings.DarkThemeForeColour;
+
+				BCancel.ForeColor = BSignup.ForeColor = MFormSettings.LightThemeForeColour;
+#endif
+			}
 		}
 	}
 }

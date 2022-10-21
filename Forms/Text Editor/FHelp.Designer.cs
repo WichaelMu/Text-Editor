@@ -31,9 +31,9 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FHelp));
 			this.LTitle = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
-			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.AboutGroup = new System.Windows.Forms.GroupBox();
 			this.label2 = new System.Windows.Forms.Label();
-			this.groupBox2 = new System.Windows.Forms.GroupBox();
+			this.IconsAndShortcutsGroup = new System.Windows.Forms.GroupBox();
 			this.pictureBox8 = new System.Windows.Forms.PictureBox();
 			this.label10 = new System.Windows.Forms.Label();
 			this.pictureBox7 = new System.Windows.Forms.PictureBox();
@@ -50,11 +50,11 @@
 			this.label4 = new System.Windows.Forms.Label();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.label3 = new System.Windows.Forms.Label();
-			this.button1 = new System.Windows.Forms.Button();
-			this.groupBox3 = new System.Windows.Forms.GroupBox();
+			this.BClose = new System.Windows.Forms.Button();
+			this.InstructionsGroup = new System.Windows.Forms.GroupBox();
 			this.label18 = new System.Windows.Forms.Label();
-			this.groupBox1.SuspendLayout();
-			this.groupBox2.SuspendLayout();
+			this.AboutGroup.SuspendLayout();
+			this.IconsAndShortcutsGroup.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -63,7 +63,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-			this.groupBox3.SuspendLayout();
+			this.InstructionsGroup.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// LTitle
@@ -86,17 +86,17 @@
 			this.label1.TabIndex = 5;
 			this.label1.Text = "MTextEditor was developed by Michael Wu | 13938903";
 			// 
-			// groupBox1
+			// AboutGroup
 			// 
-			this.groupBox1.Controls.Add(this.label2);
-			this.groupBox1.Controls.Add(this.label1);
-			this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-			this.groupBox1.Location = new System.Drawing.Point(12, 93);
-			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(590, 114);
-			this.groupBox1.TabIndex = 6;
-			this.groupBox1.TabStop = false;
-			this.groupBox1.Text = "About";
+			this.AboutGroup.Controls.Add(this.label2);
+			this.AboutGroup.Controls.Add(this.label1);
+			this.AboutGroup.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+			this.AboutGroup.Location = new System.Drawing.Point(12, 93);
+			this.AboutGroup.Name = "AboutGroup";
+			this.AboutGroup.Size = new System.Drawing.Size(590, 114);
+			this.AboutGroup.TabIndex = 6;
+			this.AboutGroup.TabStop = false;
+			this.AboutGroup.Text = "About";
 			// 
 			// label2
 			// 
@@ -108,31 +108,31 @@
 			this.label2.TabIndex = 6;
 			this.label2.Text = "Version 1.0.0-Release";
 			// 
-			// groupBox2
+			// IconsAndShortcutsGroup
 			// 
-			this.groupBox2.Controls.Add(this.pictureBox8);
-			this.groupBox2.Controls.Add(this.label10);
-			this.groupBox2.Controls.Add(this.pictureBox7);
-			this.groupBox2.Controls.Add(this.label9);
-			this.groupBox2.Controls.Add(this.pictureBox6);
-			this.groupBox2.Controls.Add(this.label8);
-			this.groupBox2.Controls.Add(this.pictureBox5);
-			this.groupBox2.Controls.Add(this.label7);
-			this.groupBox2.Controls.Add(this.pictureBox4);
-			this.groupBox2.Controls.Add(this.label6);
-			this.groupBox2.Controls.Add(this.pictureBox3);
-			this.groupBox2.Controls.Add(this.label5);
-			this.groupBox2.Controls.Add(this.pictureBox2);
-			this.groupBox2.Controls.Add(this.label4);
-			this.groupBox2.Controls.Add(this.pictureBox1);
-			this.groupBox2.Controls.Add(this.label3);
-			this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-			this.groupBox2.Location = new System.Drawing.Point(12, 227);
-			this.groupBox2.Name = "groupBox2";
-			this.groupBox2.Size = new System.Drawing.Size(590, 434);
-			this.groupBox2.TabIndex = 7;
-			this.groupBox2.TabStop = false;
-			this.groupBox2.Text = "Icons and Shortcuts";
+			this.IconsAndShortcutsGroup.Controls.Add(this.pictureBox8);
+			this.IconsAndShortcutsGroup.Controls.Add(this.label10);
+			this.IconsAndShortcutsGroup.Controls.Add(this.pictureBox7);
+			this.IconsAndShortcutsGroup.Controls.Add(this.label9);
+			this.IconsAndShortcutsGroup.Controls.Add(this.pictureBox6);
+			this.IconsAndShortcutsGroup.Controls.Add(this.label8);
+			this.IconsAndShortcutsGroup.Controls.Add(this.pictureBox5);
+			this.IconsAndShortcutsGroup.Controls.Add(this.label7);
+			this.IconsAndShortcutsGroup.Controls.Add(this.pictureBox4);
+			this.IconsAndShortcutsGroup.Controls.Add(this.label6);
+			this.IconsAndShortcutsGroup.Controls.Add(this.pictureBox3);
+			this.IconsAndShortcutsGroup.Controls.Add(this.label5);
+			this.IconsAndShortcutsGroup.Controls.Add(this.pictureBox2);
+			this.IconsAndShortcutsGroup.Controls.Add(this.label4);
+			this.IconsAndShortcutsGroup.Controls.Add(this.pictureBox1);
+			this.IconsAndShortcutsGroup.Controls.Add(this.label3);
+			this.IconsAndShortcutsGroup.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+			this.IconsAndShortcutsGroup.Location = new System.Drawing.Point(12, 227);
+			this.IconsAndShortcutsGroup.Name = "IconsAndShortcutsGroup";
+			this.IconsAndShortcutsGroup.Size = new System.Drawing.Size(590, 434);
+			this.IconsAndShortcutsGroup.TabIndex = 7;
+			this.IconsAndShortcutsGroup.TabStop = false;
+			this.IconsAndShortcutsGroup.Text = "Icons and Shortcuts";
 			// 
 			// pictureBox8
 			// 
@@ -295,26 +295,26 @@
 			this.label3.TabIndex = 6;
 			this.label3.Text = "Click this Icon to Create a new File. (Ctrl+N)";
 			// 
-			// button1
+			// BClose
 			// 
-			this.button1.Location = new System.Drawing.Point(18, 679);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(75, 23);
-			this.button1.TabIndex = 8;
-			this.button1.Text = "Close";
-			this.button1.UseVisualStyleBackColor = true;
-			this.button1.Click += new System.EventHandler(this.OnClick_Back);
+			this.BClose.Location = new System.Drawing.Point(18, 679);
+			this.BClose.Name = "BClose";
+			this.BClose.Size = new System.Drawing.Size(75, 23);
+			this.BClose.TabIndex = 8;
+			this.BClose.Text = "Close";
+			this.BClose.UseVisualStyleBackColor = true;
+			this.BClose.Click += new System.EventHandler(this.OnClick_Back);
 			// 
-			// groupBox3
+			// InstructionsGroup
 			// 
-			this.groupBox3.Controls.Add(this.label18);
-			this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-			this.groupBox3.Location = new System.Drawing.Point(650, 227);
-			this.groupBox3.Name = "groupBox3";
-			this.groupBox3.Size = new System.Drawing.Size(590, 434);
-			this.groupBox3.TabIndex = 23;
-			this.groupBox3.TabStop = false;
-			this.groupBox3.Text = "Instructions";
+			this.InstructionsGroup.Controls.Add(this.label18);
+			this.InstructionsGroup.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+			this.InstructionsGroup.Location = new System.Drawing.Point(650, 227);
+			this.InstructionsGroup.Name = "InstructionsGroup";
+			this.InstructionsGroup.Size = new System.Drawing.Size(590, 434);
+			this.InstructionsGroup.TabIndex = 23;
+			this.InstructionsGroup.TabStop = false;
+			this.InstructionsGroup.Text = "Instructions";
 			// 
 			// label18
 			// 
@@ -331,10 +331,10 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1252, 714);
-			this.Controls.Add(this.groupBox3);
-			this.Controls.Add(this.button1);
-			this.Controls.Add(this.groupBox2);
-			this.Controls.Add(this.groupBox1);
+			this.Controls.Add(this.InstructionsGroup);
+			this.Controls.Add(this.BClose);
+			this.Controls.Add(this.IconsAndShortcutsGroup);
+			this.Controls.Add(this.AboutGroup);
 			this.Controls.Add(this.LTitle);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
 			this.MaximizeBox = false;
@@ -342,10 +342,11 @@
 			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Help, Information & Instructions";
-			this.groupBox1.ResumeLayout(false);
-			this.groupBox1.PerformLayout();
-			this.groupBox2.ResumeLayout(false);
-			this.groupBox2.PerformLayout();
+			this.Load += new System.EventHandler(this.Start);
+			this.AboutGroup.ResumeLayout(false);
+			this.AboutGroup.PerformLayout();
+			this.IconsAndShortcutsGroup.ResumeLayout(false);
+			this.IconsAndShortcutsGroup.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
@@ -354,8 +355,8 @@
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-			this.groupBox3.ResumeLayout(false);
-			this.groupBox3.PerformLayout();
+			this.InstructionsGroup.ResumeLayout(false);
+			this.InstructionsGroup.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -365,9 +366,9 @@
 
 		private Label LTitle;
 		private Label label1;
-		private GroupBox groupBox1;
+		private GroupBox AboutGroup;
 		private Label label2;
-		private GroupBox groupBox2;
+		private GroupBox IconsAndShortcutsGroup;
 		private Label label3;
 		private PictureBox pictureBox1;
 		private PictureBox pictureBox3;
@@ -384,8 +385,8 @@
 		private Label label9;
 		private PictureBox pictureBox8;
 		private Label label10;
-		private Button button1;
-		private GroupBox groupBox3;
+		private Button BClose;
+		private GroupBox InstructionsGroup;
 		private Label label18;
 	}
 }

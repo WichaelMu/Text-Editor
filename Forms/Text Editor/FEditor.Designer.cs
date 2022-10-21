@@ -38,9 +38,12 @@
 			this.TSBold = new System.Windows.Forms.ToolStripButton();
 			this.TSUnderline = new System.Windows.Forms.ToolStripButton();
 			this.TSItalics = new System.Windows.Forms.ToolStripButton();
+			this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
 			this.TSFontSize = new System.Windows.Forms.ToolStripComboBox();
+			this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
 			this.TSAbout = new System.Windows.Forms.ToolStripButton();
 			this.LLoggedInUser = new System.Windows.Forms.ToolStripLabel();
+			this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
 			this.TSLeftToolStrip = new System.Windows.Forms.ToolStrip();
 			this.TSCut = new System.Windows.Forms.ToolStripButton();
 			this.TSCopy = new System.Windows.Forms.ToolStripButton();
@@ -64,6 +67,10 @@
 			this.MSAbout = new System.Windows.Forms.ToolStripMenuItem();
 			this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.MSMenuStrip = new System.Windows.Forms.MenuStrip();
+			this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.themeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.lightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.darkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.TSTopToolStrip.SuspendLayout();
 			this.TSLeftToolStrip.SuspendLayout();
 			this.MSMenuStrip.SuspendLayout();
@@ -80,9 +87,12 @@
             this.TSBold,
             this.TSUnderline,
             this.TSItalics,
+            this.toolStripSeparator5,
             this.TSFontSize,
+            this.toolStripSeparator6,
             this.TSAbout,
-            this.LLoggedInUser});
+            this.LLoggedInUser,
+            this.toolStripButton1});
 			this.TSTopToolStrip.Location = new System.Drawing.Point(0, 24);
 			this.TSTopToolStrip.Name = "TSTopToolStrip";
 			this.TSTopToolStrip.Size = new System.Drawing.Size(1264, 25);
@@ -164,12 +174,22 @@
 			this.TSItalics.Text = "Italics";
 			this.TSItalics.Click += new System.EventHandler(this.Tools_Italics);
 			// 
+			// toolStripSeparator5
+			// 
+			this.toolStripSeparator5.Name = "toolStripSeparator5";
+			this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
+			// 
 			// TSFontSize
 			// 
 			this.TSFontSize.Name = "TSFontSize";
 			this.TSFontSize.Size = new System.Drawing.Size(121, 25);
 			this.TSFontSize.Leave += new System.EventHandler(this.Tools_FontSize_LeftFocus);
 			this.TSFontSize.TextChanged += new System.EventHandler(this.Tools_FontSize);
+			// 
+			// toolStripSeparator6
+			// 
+			this.toolStripSeparator6.Name = "toolStripSeparator6";
+			this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
 			// 
 			// TSAbout
 			// 
@@ -179,7 +199,7 @@
 			this.TSAbout.Name = "TSAbout";
 			this.TSAbout.Size = new System.Drawing.Size(23, 22);
 			this.TSAbout.Text = "About";
-			this.TSAbout.ToolTipText = "About";
+			this.TSAbout.ToolTipText = "Help";
 			this.TSAbout.Click += new System.EventHandler(this.Tools_Help);
 			// 
 			// LLoggedInUser
@@ -188,6 +208,17 @@
 			this.LLoggedInUser.Name = "LLoggedInUser";
 			this.LLoggedInUser.Size = new System.Drawing.Size(131, 22);
 			this.LLoggedInUser.Text = "## LOGGED IN USER ##";
+			// 
+			// toolStripButton1
+			// 
+			this.toolStripButton1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+			this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+			this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolStripButton1.Name = "toolStripButton1";
+			this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+			this.toolStripButton1.Text = "Logout";
+			this.toolStripButton1.Click += new System.EventHandler(this.Tools_Logout);
 			// 
 			// TSLeftToolStrip
 			// 
@@ -255,6 +286,7 @@
 			this.RTextArea.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+			this.RTextArea.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.RTextArea.Location = new System.Drawing.Point(27, 52);
 			this.RTextArea.Name = "RTextArea";
 			this.RTextArea.Size = new System.Drawing.Size(1225, 617);
@@ -393,7 +425,7 @@
 			this.MSAbout.Image = ((System.Drawing.Image)(resources.GetObject("MSAbout.Image")));
 			this.MSAbout.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
 			this.MSAbout.Name = "MSAbout";
-			this.MSAbout.Size = new System.Drawing.Size(196, 38);
+			this.MSAbout.Size = new System.Drawing.Size(123, 38);
 			this.MSAbout.Text = "Help";
 			this.MSAbout.Click += new System.EventHandler(this.Tools_Help);
 			// 
@@ -402,7 +434,7 @@
 			this.helpToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("helpToolStripMenuItem1.Image")));
 			this.helpToolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
 			this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
-			this.helpToolStripMenuItem1.Size = new System.Drawing.Size(196, 38);
+			this.helpToolStripMenuItem1.Size = new System.Drawing.Size(123, 38);
 			this.helpToolStripMenuItem1.Text = "About";
 			this.helpToolStripMenuItem1.Click += new System.EventHandler(this.Tools_About);
 			// 
@@ -410,6 +442,7 @@
 			// 
 			this.MSMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
+            this.viewToolStripMenuItem,
             this.editToolStripMenuItem,
             this.helpToolStripMenuItem});
 			this.MSMenuStrip.Location = new System.Drawing.Point(0, 0);
@@ -417,6 +450,39 @@
 			this.MSMenuStrip.Size = new System.Drawing.Size(1264, 24);
 			this.MSMenuStrip.TabIndex = 0;
 			this.MSMenuStrip.Text = "menuStrip1";
+			// 
+			// viewToolStripMenuItem
+			// 
+			this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.themeToolStripMenuItem});
+			this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+			this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+			this.viewToolStripMenuItem.Text = "View";
+			// 
+			// themeToolStripMenuItem
+			// 
+			this.themeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lightToolStripMenuItem,
+            this.darkToolStripMenuItem});
+			this.themeToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("themeToolStripMenuItem.Image")));
+			this.themeToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+			this.themeToolStripMenuItem.Name = "themeToolStripMenuItem";
+			this.themeToolStripMenuItem.Size = new System.Drawing.Size(126, 38);
+			this.themeToolStripMenuItem.Text = "Theme";
+			// 
+			// lightToolStripMenuItem
+			// 
+			this.lightToolStripMenuItem.Name = "lightToolStripMenuItem";
+			this.lightToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
+			this.lightToolStripMenuItem.Text = "Light";
+			this.lightToolStripMenuItem.Click += new System.EventHandler(this.Tools_LightTheme);
+			// 
+			// darkToolStripMenuItem
+			// 
+			this.darkToolStripMenuItem.Name = "darkToolStripMenuItem";
+			this.darkToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
+			this.darkToolStripMenuItem.Text = "Dark";
+			this.darkToolStripMenuItem.Click += new System.EventHandler(this.Tools_DarkTheme);
 			// 
 			// FEditor
 			// 
@@ -482,5 +548,12 @@
 		private ToolStripSeparator toolStripSeparator4;
 		private ToolStripButton TSCompile;
 		private ToolStripMenuItem helpToolStripMenuItem1;
+		private ToolStripButton toolStripButton1;
+		private ToolStripSeparator toolStripSeparator5;
+		private ToolStripSeparator toolStripSeparator6;
+		private ToolStripMenuItem viewToolStripMenuItem;
+		private ToolStripMenuItem themeToolStripMenuItem;
+		private ToolStripMenuItem lightToolStripMenuItem;
+		private ToolStripMenuItem darkToolStripMenuItem;
 	}
 }

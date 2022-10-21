@@ -19,6 +19,8 @@ namespace MTextEditor
 			EUserType.Items.Add(EUserTypes.View);
 			EUserType.Items.Add(EUserTypes.Edit);
 			EUserType.SelectedIndex = 0;
+
+			UpdateTheme();
 		}
 
 		void OnClick_Signup(object Sender, EventArgs E)
@@ -123,6 +125,23 @@ namespace MTextEditor
 		{
 			if (E.KeyCode == Keys.Enter)
 				CheckSignup();
+		}
+
+		void UpdateTheme()
+		{
+			if (MFormSettings.bIsLightTheme)
+			{
+				BackColor = SignUpGroup.BackColor = TSignupUsername.BackColor = TSignupPasswordBase.BackColor = TSignupPasswordComparison.BackColor = TFirstName.BackColor = TLastName.BackColor = DBirthday.CalendarTitleBackColor = EUserType.BackColor = MFormSettings.LightThemeColour;
+				ForeColor = SignUpGroup.ForeColor = TSignupUsername.ForeColor = TSignupPasswordBase.ForeColor = TSignupPasswordComparison.ForeColor = TFirstName.ForeColor = TLastName.ForeColor = DBirthday.CalendarTitleForeColor = EUserType.ForeColor = MFormSettings.LightThemeForeColour;
+			}
+			else
+			{
+				BackColor = SignUpGroup.BackColor = TSignupUsername.BackColor = TSignupPasswordBase.BackColor = TSignupPasswordComparison.BackColor = TFirstName.BackColor = TLastName.BackColor = DBirthday.CalendarTitleBackColor = EUserType.BackColor = MFormSettings.DarkThemeColour;
+				ForeColor = SignUpGroup.ForeColor = TSignupUsername.ForeColor = TSignupPasswordBase.ForeColor = TSignupPasswordComparison.ForeColor = TFirstName.ForeColor = TLastName.ForeColor = DBirthday.CalendarTitleForeColor = EUserType.ForeColor = MFormSettings.DarkThemeForeColour;
+
+				BCancel.ForeColor = BSignup.ForeColor = MFormSettings.LightThemeForeColour;
+			}
+
 		}
 	}
 }

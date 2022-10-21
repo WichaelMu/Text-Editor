@@ -33,7 +33,7 @@
 			this.LLoginFailMessage = new System.Windows.Forms.Label();
 			this.HSignup = new System.Windows.Forms.Label();
 			this.label8 = new System.Windows.Forms.Label();
-			this.button1 = new System.Windows.Forms.Button();
+			this.BLogin = new System.Windows.Forms.Button();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
 			this.TLoginPassword = new System.Windows.Forms.TextBox();
@@ -75,7 +75,7 @@
 			this.LoginGroup.Controls.Add(this.LLoginFailMessage);
 			this.LoginGroup.Controls.Add(this.HSignup);
 			this.LoginGroup.Controls.Add(this.label8);
-			this.LoginGroup.Controls.Add(this.button1);
+			this.LoginGroup.Controls.Add(this.BLogin);
 			this.LoginGroup.Controls.Add(this.label2);
 			this.LoginGroup.Controls.Add(this.label1);
 			this.LoginGroup.Controls.Add(this.TLoginPassword);
@@ -120,15 +120,15 @@
 			this.label8.TabIndex = 7;
 			this.label8.Text = "Don\'t have an account?";
 			// 
-			// button1
+			// BLogin
 			// 
-			this.button1.Location = new System.Drawing.Point(163, 147);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(75, 23);
-			this.button1.TabIndex = 6;
-			this.button1.Text = "Login";
-			this.button1.UseVisualStyleBackColor = true;
-			this.button1.Click += new System.EventHandler(this.OnClick_Login);
+			this.BLogin.Location = new System.Drawing.Point(163, 147);
+			this.BLogin.Name = "BLogin";
+			this.BLogin.Size = new System.Drawing.Size(75, 23);
+			this.BLogin.TabIndex = 6;
+			this.BLogin.Text = "Login";
+			this.BLogin.UseVisualStyleBackColor = true;
+			this.BLogin.Click += new System.EventHandler(this.OnClick_Login);
 			// 
 			// label2
 			// 
@@ -395,7 +395,7 @@
 		private Label label5;
 		private Label label4;
 		private Label label3;
-		private Button button1;
+		private Button BLogin;
 		private Label HSignup;
 		private Label label8;
 		private Label LSignupUsernameFailMessage;

@@ -63,6 +63,8 @@ namespace MTextEditor
 
 			TSFontSize.SelectedIndex = 3; // 11
 			AdjustFontSize(kDefaultFontSize);
+
+			UpdateTheme();
 		}
 
 		void FEditor_Closing(object Sender, FormClosingEventArgs E)
@@ -74,6 +76,7 @@ namespace MTextEditor
 		{
 			Application.Exit();
 		}
+
 
 		// File Manipulation.
 		void Tools_New(object Sender, EventArgs E) => New();
@@ -93,10 +96,12 @@ namespace MTextEditor
 		void Tools_Copy(object Sender, EventArgs E) => Copy();
 		void Tools_Paste(object Sender, EventArgs E) => Paste();
 
+
 		// BUI.
 		void Tools_Bold(object Sender, EventArgs E) => Bold();
 		void Tools_Underline(object Sender, EventArgs E) => Underline();
 		void Tools_Italics(object Sender, EventArgs E) => Italics();
+
 
 		// Misc.
 		//
@@ -114,11 +119,42 @@ namespace MTextEditor
 			new FHelp().Show();
 		}
 
-		void Tools_About(object sender, EventArgs e)
+		void Tools_About(object Sender, EventArgs E)
 		{
 			MessageBox.Show("Text Editor Version 1.0.0-Release\nAuthor: Michael Wu", "About Text Editor",
 				MessageBoxButtons.OK, MessageBoxIcon.Information
 			);
+		}
+
+
+		// Theme Settings
+		//
+		void Tools_LightTheme(object Sender, EventArgs E)
+		{
+			MFormSettings.bIsLightTheme = true;
+
+			UpdateTheme();
+		}
+
+		void Tools_DarkTheme(object Sender, EventArgs E)
+		{
+			MFormSettings.bIsLightTheme = false;
+
+			UpdateTheme();
+		}
+
+		void UpdateTheme()
+		{
+			if (MFormSettings.bIsLightTheme)
+			{
+				BackColor = TSLeftToolStrip.BackColor = TSTopToolStrip.BackColor = MSMenuStrip.BackColor = TSFontSize.BackColor = RTextArea.BackColor = MFormSettings.LightThemeColour;
+				ForeColor = TSLeftToolStrip.ForeColor = TSTopToolStrip.ForeColor = MSMenuStrip.ForeColor = TSFontSize.ForeColor = RTextArea.ForeColor = MFormSettings.LightThemeForeColour;
+			}
+			else
+			{
+				BackColor = TSLeftToolStrip.BackColor = TSTopToolStrip.BackColor = MSMenuStrip.BackColor = TSFontSize.BackColor = RTextArea.BackColor = MFormSettings.DarkThemeColour;
+				ForeColor = TSLeftToolStrip.ForeColor = TSTopToolStrip.ForeColor = MSMenuStrip.ForeColor = TSFontSize.ForeColor = RTextArea.ForeColor = MFormSettings.DarkThemeForeColour;
+			}
 		}
 
 

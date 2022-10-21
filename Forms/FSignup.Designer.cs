@@ -249,7 +249,9 @@
 			this.ClientSize = new System.Drawing.Size(800, 450);
 			this.Controls.Add(this.LTitle);
 			this.Controls.Add(this.SignUpGroup);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
 			this.KeyPreview = true;
+			this.MaximizeBox = false;
 			this.Name = "FSignup";
 			this.Text = "Signup | MTextEditor";
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OnClose_FSignup);
