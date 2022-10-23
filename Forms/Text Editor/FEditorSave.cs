@@ -48,8 +48,12 @@ namespace MTextEditor
 
 		async void SaveRTextAreaToFile(string Path)
 		{
+			RTextArea.ForeColor = MFormSettings.LightThemeForeColour;
+
 			await WriteToFile("", Path, EWriteMode.Overwrite, Encoding.Default,
 				GetExtension(CurrentlyOpenedFile) == 0 ? RTextArea.Rtf : RTextArea.Text);
+
+			RTextArea.ForeColor = MFormSettings.bIsLightTheme ? MFormSettings.LightThemeForeColour : MFormSettings.DarkThemeForeColour;
 		}
 	}
 }
