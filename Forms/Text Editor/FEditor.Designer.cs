@@ -287,6 +287,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.RTextArea.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.RTextArea.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
 			this.RTextArea.Location = new System.Drawing.Point(27, 52);
 			this.RTextArea.Name = "RTextArea";
 			this.RTextArea.Size = new System.Drawing.Size(1225, 617);

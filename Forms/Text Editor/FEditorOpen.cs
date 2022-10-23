@@ -25,7 +25,6 @@ namespace MTextEditor
 					SetExtension(Extension);
 				}
 
-
 				UpdateTitle();
 			}
 		}

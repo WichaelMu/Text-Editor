@@ -10,7 +10,7 @@ namespace MTextEditor
 		internal string CurrentlyOpenedFile = "";
 		internal int UnsavedChangesTracker = string.Empty.GetHashCode();
 
-		internal bool bIsDirty;
+		internal int PreviousLength = 0;
 
 		const int kMinimumFontSize = 8;
 		const int kMaximumFontSize = 20;
@@ -209,9 +209,15 @@ namespace MTextEditor
 
 		void RTextChanged(object Sender, EventArgs E)
 		{
+			// Prevent rolling RTF modifications when Cutting or Pasting text or when Backspacing text.
+			int Length = RTextArea.Text.Length;
+			int Delta = Length - PreviousLength;
+
 			UpdateTitle();
-			HandleRollingFontSize();
-			HandleRollingBUI();
+			HandleRollingFontSize(Delta);
+			HandleRollingBUI(Delta);
+
+			PreviousLength = Length;
 		}
 
 		void UpdateTitle()
